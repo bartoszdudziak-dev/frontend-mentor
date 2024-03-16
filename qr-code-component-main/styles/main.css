@@ -1,0 +1,54 @@
+*,
+*::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Outfit, sans-serif;
+  background-color: hsl(212, 45%, 89%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  padding: 1.25rem;
+  margin-block-end: 2rem;
+  margin-inline: 1rem;
+}
+.container .image-wrapper {
+  margin-block-end: 1rem;
+}
+.container .image-wrapper img {
+  border-radius: 0.5rem;
+  display: block;
+  width: 100%;
+}
+.container .text-wrapper {
+  text-align: center;
+  padding-inline: 0.5rem;
+}
+.container .text-wrapper > * {
+  margin-block-end: 1rem;
+}
+.container .text-wrapper h2 {
+  color: hsl(218, 44%, 22%);
+}
+.container .text-wrapper p {
+  font-size: 15px;
+  color: hsl(220, 15%, 55%);
+}
+
+@media (min-width: 375px) {
+  .container {
+    max-width: 400px;
+  }
+}/*# sourceMappingURL=main.css.map */

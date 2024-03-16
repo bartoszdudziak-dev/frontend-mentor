@@ -1,0 +1,81 @@
+// Reset
+*,
+*::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Custom variables
+// Layout
+$moblie-breakpoint: 375px;
+$desktop-breakpint: 1440px;
+
+// Colors
+$clr-white: hsl(0, 0%, 100%);
+$clr-light-gray: hsl(212, 45%, 89%);
+$clr-grayish-blue: hsl(220, 15%, 55%);
+$clr-dark-blue: hsl(218, 44%, 22%);
+
+// Font
+$ff-main: Outfit, sans-serif;
+$fw-400: 400;
+$fw-700: 700;
+$fs-main: 15px;
+
+$border-radius: 1rem;
+
+body {
+  font-family: $ff-main;
+  background-color: $clr-light-gray;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: $clr-white;
+  border-radius: $border-radius;
+  box-shadow: 0 0 10px rgba($color: black, $alpha: 0.25);
+  padding: 1.25rem;
+  margin-block-end: 2rem;
+  margin-inline: 1rem;
+
+  .image-wrapper {
+    margin-block-end: 1rem;
+
+    img {
+      border-radius: $border-radius / 2;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .text-wrapper {
+    text-align: center;
+    padding-inline: 0.5rem;
+
+    & > * {
+      margin-block-end: 1rem;
+    }
+
+    h2 {
+      color: $clr-dark-blue;
+    }
+
+    p {
+      font-size: $fs-main;
+      color: $clr-grayish-blue;
+    }
+  }
+}
+
+@media (min-width: $moblie-breakpoint) {
+  .container {
+    max-width: 400px;
+  }
+}
