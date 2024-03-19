@@ -186,7 +186,7 @@ ul {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: $breakpoint-mobile) {
   .recipe {
     margin: 0;
 
