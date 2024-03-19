@@ -1,0 +1,205 @@
+// CLEAR
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+// IMPORT FONTS
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+// CUSTOM VARIABLES
+$breakpoint-mobile: 375px;
+$breakpoint-desktop: 1440px;
+
+// COLORS
+$clr-primary-nutmeg: hsl(14, 45%, 36%);
+$clr-primary-dark-raspberry: hsl(332, 51%, 32%);
+
+$clr-neutral-white: hsl(0, 0%, 100%);
+$clr-neutral-rose-white: hsl(330, 100%, 98%);
+$clr-neutral-eggshell: hsl(30, 54%, 90%);
+$clr-neutral-light-grey: hsl(30, 18%, 87%);
+$clr-neutral-wenge-brown: hsl(30, 10%, 34%);
+$clr-neutral-dark-charcoal: hsl(24, 5%, 18%);
+
+// FONT
+$ff-primary: 'Young Serif', serif;
+$ff-secondary: 'Outfit', sans-serif;
+
+$fs-regular: 16px;
+
+$fw-regular: 400;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+$br-recipe: 1rem;
+$default-margin: 1.5rem;
+$default-padding: 2rem;
+
+// STYLING
+body {
+  background-color: $clr-neutral-eggshell;
+  font-family: $ff-secondary;
+}
+
+h1,
+h2 {
+  font-family: $ff-primary;
+  margin-block-end: $default-margin;
+}
+h1 {
+  color: $clr-neutral-dark-charcoal;
+}
+h2 {
+  color: $clr-primary-nutmeg;
+}
+h3 {
+  color: $clr-primary-dark-raspberry;
+}
+
+ul,
+ol {
+  padding-inline-start: $default-padding / 2;
+  li {
+    margin-block-start: $default-margin / 2;
+    padding-inline-start: 1rem;
+    &::marker {
+      font-weight: $fw-bold;
+      color: $clr-primary-nutmeg;
+    }
+    span {
+      font-weight: $fw-bold;
+      padding-inline-end: 0.25rem;
+    }
+  }
+}
+
+ul {
+  list-style: square;
+  li {
+    &::marker {
+      font-size: 75%;
+    }
+  }
+}
+
+.recipe {
+  background-color: $clr-neutral-white;
+  color: $clr-neutral-wenge-brown;
+  font-size: $fs-regular;
+  font-weight: $fw-regular;
+  line-height: 1.2;
+  border-radius: $br-recipe;
+
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: $default-padding;
+
+  &__image {
+    margin-block-end: $default-margin;
+
+    img {
+      display: block;
+      width: 100%;
+      border-radius: $br-recipe / 2;
+    }
+  }
+
+  &__preparation-time {
+    background-color: $clr-neutral-rose-white;
+    padding: $default-padding;
+    margin-block: $default-margin;
+    border-radius: $br-recipe / 2;
+
+    li {
+      &::marker {
+        color: $clr-primary-dark-raspberry;
+      }
+    }
+  }
+
+  section {
+    margin-block-end: $default-margin;
+  }
+
+  &__ingredients-section,
+  &__instructions-section {
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $clr-neutral-light-grey;
+      margin-block-start: $default-margin;
+    }
+  }
+
+  &__nutrition-section {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      caption {
+        text-align: left;
+        margin-block-end: $default-margin;
+      }
+
+      th {
+        font-weight: $fw-regular;
+        padding-inline-start: 2rem;
+        width: 50%;
+      }
+
+      td {
+        font-weight: $fw-bold;
+        color: $clr-primary-nutmeg;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding-block: 0.75rem;
+      }
+
+      tr {
+        &:not(:last-child) {
+          th,
+          td {
+            border-bottom: 1px solid $clr-neutral-light-grey;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .recipe {
+    margin: 0;
+
+    &__image {
+      margin-inline: -$default-padding;
+      margin-block-start: -$default-padding;
+      img {
+        border-radius: unset;
+      }
+    }
+  }
+
+  .attribution {
+    display: none;
+  }
+}
