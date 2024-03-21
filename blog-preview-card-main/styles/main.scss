@@ -1,0 +1,140 @@
+// CLEAR
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+// LAYOUT
+$bp-mobile: 375px;
+$bp-desktop: 1440px;
+
+// COLORS
+$clr-primary-yellow: hsl(47, 88%, 63%);
+$clr-neutral-white: hsl(0, 0%, 100%);
+$clr-neutral-grey: hsl(0, 0%, 50%);
+$clr-neutral-black: hsl(0, 0%, 7%);
+
+// FONT
+$fs-regular: 1rem; //16px;
+$fs-small: 0.875rem;
+$fs-large: 1.5rem;
+
+$fw-semibold: 500;
+$fw-extrabold: 800;
+
+$padding-regular: 1.5rem;
+
+@font-face {
+  font-family: 'Figtree';
+  src: local('Figtree'), url('../assets/fonts/static/Figtree-SemiBold.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Figtree';
+  src: local('Figtree'), url('../assets/fonts/static/Figtree-ExtraBold.ttf');
+  font-weight: 800;
+}
+
+@mixin flex-layout(
+  $gap: 0px,
+  $flex-direction: column,
+  $justify-content: flex-start,
+  $align-items: flex-start
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+}
+
+body {
+  @include flex-layout(0px, column, center, center);
+  min-height: 100dvh;
+
+  background-color: $clr-primary-yellow;
+  font-family: 'Figtree', sans-serif;
+  font-weight: $fw-semibold;
+  font-size: $fs-regular;
+  color: $clr-neutral-black;
+}
+
+.card {
+  @include flex-layout($padding-regular);
+  max-width: 384px;
+  padding: $padding-regular;
+  margin: auto $padding-regular;
+
+  background-color: $clr-neutral-white;
+  border-radius: 20px;
+  border: 1px solid $clr-neutral-black;
+  box-shadow: 8px 8px 0 $clr-neutral-black;
+
+  &__img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+
+  &__content {
+    @include flex-layout($padding-regular / 2);
+
+    .category {
+      font-weight: $fw-extrabold;
+      font-size: $fs-small;
+
+      background-color: $clr-primary-yellow;
+      padding: $padding-regular / 6 $padding-regular / 2;
+      border-radius: 4px;
+    }
+
+    .publishdate {
+      font-size: $fs-small;
+    }
+
+    .title {
+      font-size: $fs-large;
+      cursor: pointer;
+
+      &:hover {
+        color: $clr-primary-yellow;
+      }
+    }
+
+    .description {
+      color: $clr-neutral-grey;
+    }
+  }
+
+  &__author {
+    @include flex-layout($padding-regular / 2, row, center, center);
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+    }
+
+    .name {
+      font-weight: $fw-extrabold;
+      font-size: $fs-small;
+    }
+  }
+}
+
+@media (width <= $bp-mobile) {
+  html {
+    font-size: 85%;
+  }
+}
