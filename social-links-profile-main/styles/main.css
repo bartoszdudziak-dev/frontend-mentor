@@ -1,0 +1,108 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+ul li a,
+ol li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url(../assets/fonts/static/Inter-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url(../assets/fonts/static/Inter-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url(../assets/fonts/static/Inter-Bold.ttf);
+  font-weight: 700;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  min-height: 100dvh;
+  background-color: hsl(0, 0%, 8%);
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: hsl(0, 0%, 100%);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: hsl(0, 0%, 12%);
+  max-width: 384px;
+  padding: 2.5rem;
+  margin: auto 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+.card .profile__img {
+  display: block;
+  width: 88px;
+  border-radius: 50%;
+}
+.card .profile__info h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-block-end: 0.25rem;
+}
+.card .profile__info p {
+  color: hsl(75, 94%, 57%);
+  font-weight: 600;
+}
+.card .profile__links {
+  width: 100%;
+  text-align: center;
+}
+.card .profile__links ul li:not(:last-child) {
+  margin-block-end: 1rem;
+}
+.card .profile__links ul li a {
+  display: block;
+  background-color: hsl(0, 0%, 20%);
+  padding: 0.75rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.5s ease-out;
+}
+.card .profile__links ul li a:hover {
+  background-color: hsl(75, 94%, 57%);
+  color: hsl(0, 0%, 8%);
+}
+
+@media (width <= 375px) {
+  .card {
+    padding: 1.5rem;
+  }
+}/*# sourceMappingURL=main.css.map */

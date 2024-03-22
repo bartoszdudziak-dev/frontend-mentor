@@ -1,0 +1,75 @@
+@import 'reset', 'variables';
+
+body {
+  @include flex-layout(0px, column, center, center);
+  min-height: 100dvh;
+  background-color: $clr-neutral-off-black;
+
+  font-family: 'Inter', sans-serif;
+  font-size: $fs-regular;
+  font-weight: $fw-regular;
+  color: $clr-neutral-white;
+}
+
+.card {
+  @include flex-layout($padding-lg, column, center, center);
+
+  background-color: $clr-neutral-dark-grey;
+  max-width: 384px;
+  padding: $padding-xl;
+  margin: auto $padding-lg;
+  border-radius: 12px;
+  text-align: center;
+
+  .profile__img {
+    display: block;
+    width: 88px;
+    border-radius: 50%;
+  }
+
+  .profile__info {
+    h2 {
+      font-size: 1.5rem;
+      font-weight: $fw-bold;
+      padding-block-end: $padding-md / 4;
+    }
+
+    p {
+      color: $clr-primary-green;
+      font-weight: $fw-semibold;
+    }
+  }
+
+  .profile__links {
+    width: 100%;
+    text-align: center;
+
+    ul {
+      li {
+        &:not(:last-child) {
+          margin-block-end: $padding-md;
+        }
+
+        a {
+          display: block;
+          background-color: $clr-neutral-grey;
+          padding: $padding-sm;
+          font-weight: $fw-semibold;
+          border-radius: 8px;
+          transition: all 0.5s ease-out;
+
+          &:hover {
+            background-color: $clr-primary-green;
+            color: $clr-neutral-off-black;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width <= $bp-mobile) {
+  .card {
+    padding: $padding-lg;
+  }
+}
