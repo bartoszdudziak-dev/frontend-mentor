@@ -1,0 +1,108 @@
+@import 'reset', 'variables', 'mixin';
+
+body {
+  @include flex-layout(0px, column, center, center);
+  min-height: 100dvh;
+  background-color: $clr-primary-cream;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $fw-medium;
+  line-height: 1.7;
+}
+
+.product {
+  display: grid;
+  margin: auto 1rem;
+  max-width: 343px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: $clr-neutral-white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $fw-medium;
+
+  &__image {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    padding: 1.5rem;
+
+    .text {
+      margin-block-end: 1.5rem;
+      color: $clr-neutral-dark-grayish-blue;
+      font-size: $fs-small;
+
+      .category {
+        letter-spacing: 0.4rem;
+        text-transform: uppercase;
+        margin-block-end: 0.75rem;
+      }
+
+      .name {
+        color: $clr-neutral-very-dark-blue;
+        font-size: $fs-large;
+        font-family: 'Fraunces', sans-serif;
+        font-weight: $fw-bold;
+        line-height: 1;
+        margin-block-end: 1rem;
+      }
+    }
+
+    .price {
+      @include flex-layout(1rem, row, flex-start, center);
+      font-weight: $fw-bold;
+      margin-block-end: 1.25rem;
+
+      .current {
+        font-family: 'Fraunces', sans-serif;
+        font-size: $fs-large;
+        color: $clr-primary-dark-cyan;
+      }
+
+      .previous {
+        color: $clr-neutral-dark-grayish-blue;
+        text-decoration: line-through;
+        font-size: $fs-small;
+      }
+    }
+
+    .btn {
+      @include flex-layout(1rem, row, center, center);
+      width: 100%;
+      padding-block: 1rem;
+      border-radius: 8px;
+      background-color: $clr-primary-dark-cyan;
+      color: $clr-neutral-white;
+      font-weight: $fw-bold;
+      font-size: $fs-small;
+      transition: all 0.5s ease-out;
+
+      &:hover {
+        background-color: $clr-neutral-very-dark-blue;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .product {
+    max-width: 600px;
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+
+    &__content {
+      padding: 2rem;
+    }
+
+    &__image {
+      img {
+        content: url('../images/image-product-desktop.jpg');
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+}

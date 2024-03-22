@@ -1,0 +1,42 @@
+// Layout
+$bp-mobile: 375px;
+$bp-desktop: 1440px;
+
+// Colors
+$clr-primary-dark-cyan: hsl(158, 36%, 37%);
+$clr-primary-cream: hsl(30, 38%, 92%);
+$clr-neutral-very-dark-blue: hsl(212, 21%, 14%);
+$clr-neutral-dark-grayish-blue: hsl(228, 12%, 48%);
+$clr-neutral-white: hsl(0, 0%, 100%);
+
+// Font
+$fs-small: 0.875rem;
+$fs-regular: 1rem;
+$fs-large: 2rem;
+
+$fw-medium: 500;
+$fw-bold: 700;
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: $fw-medium;
+  src: local('Montserrat'),
+    url('../assets/fonts/Montserrat-Medium.woff2') format('woff2'),
+    url('../assets/fonts/Montserrat-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: $fw-bold;
+  src: local('Montserrat'),
+    url('../assets/fonts/Montserrat-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Montserrat-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-weight: $fw-bold;
+  src: local('Fraunces'),
+    url('../assets/fonts/Fraunces9pt-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Fraunces9pt-Bold.woff') format('woff');
+}
