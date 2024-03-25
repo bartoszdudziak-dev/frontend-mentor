@@ -1,0 +1,42 @@
+// Colors
+$clr-primary-red: hsl(0, 78%, 62%);
+$clr-primary-cyan: hsl(180, 62%, 55%);
+$clr-primary-orange: hsl(34, 97%, 64%);
+$clr-primary-blue: hsl(212, 86%, 64%);
+
+$clr-neutral-very-dark-blue: hsl(234, 12%, 34%);
+$clr-neutral-grayish-blue: hsl(229, 6%, 66%);
+$clr-neutral-very-light-gray: hsl(0, 0%, 98%);
+
+// Font
+$fs-sm: 0.8125rem; // 13px
+$fs-md: 0.9375rem; // 15px
+$fs-lg: 1.25rem; // 20px
+$fs-xl: 1.5rem; // 24px
+$fs-xxl: 2.25rem; //36
+
+$fw-extralight: 200;
+$fw-regular: 400;
+$fw-semibold: 600;
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: $fw-extralight;
+  src: local('Poppins'),
+    url('../assets/fonts/Poppins-ExtraLight.woff2') format('woff2'),
+    url('../assets/fonts/Poppins-ExtraLight.woff') format('woff');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: $fw-regular;
+  src: local('Poppins'),
+    url('../assets/fonts/Poppins-Regular.woff2') format('woff2'),
+    url('../assets/fonts/Poppins-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: $fw-semibold;
+  src: local('Poppins'),
+    url('../assets/fonts/Poppins-SemiBold.woff2') format('woff2'),
+    url('../assets/fonts/Poppins-SemiBold.woff') format('woff');
+}

@@ -1,0 +1,135 @@
+@import 'reset', 'variables', 'mixins';
+
+body {
+  @include center-for-challenge;
+  background-color: $clr-neutral-very-light-gray;
+  font-family: 'Poppins', sans-serif;
+  font-weight: $fw-regular;
+  line-height: 1.2;
+  color: $clr-neutral-very-dark-blue;
+  margin-inline: 2rem;
+}
+
+header {
+  margin-block: 2rem 4rem;
+  text-align: center;
+  margin-inline: auto;
+
+  .wrapper-header {
+    max-width: 540px;
+
+    h1 {
+      font-size: $fs-xl;
+      font-weight: $fw-extralight;
+      margin-block-end: 0.8rem;
+      span {
+        display: block;
+        font-weight: $fw-semibold;
+      }
+    }
+
+    p {
+      font-size: $fs-md;
+      font-weight: $fw-regular;
+      color: $clr-neutral-grayish-blue;
+    }
+  }
+}
+
+main {
+  margin-block-end: 2rem;
+  margin-inline: auto;
+
+  .wrapper-main {
+    max-width: 1140px;
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-areas:
+        'one'
+        'two'
+        'three'
+        'four';
+    }
+
+    .card {
+      background-color: $clr-neutral-very-light-gray;
+      max-width: 350px;
+      padding: 2rem;
+      border-radius: 0.5rem;
+
+      box-shadow: 0px 3px 3px 3px rgb(0 0 0 / 20%);
+
+      background-repeat: no-repeat;
+      background-position: 85% 85%;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      h2 {
+        font-size: $fs-lg;
+        font-weight: $fw-semibold;
+        margin-block-end: 0.8rem;
+      }
+
+      p {
+        font-size: $fs-sm;
+        color: $clr-neutral-grayish-blue;
+        margin-block-end: 6rem;
+      }
+
+      &:nth-child(1) {
+        grid-area: one;
+        background-image: url('../assets/images/icon-supervisor.svg');
+        &::before {
+          background-color: $clr-primary-cyan;
+        }
+      }
+      &:nth-child(2) {
+        grid-area: two;
+        background-image: url('../assets/images/icon-team-builder.svg');
+        &::before {
+          background-color: $clr-primary-red;
+        }
+      }
+      &:nth-child(3) {
+        grid-area: three;
+        background-image: url('../assets/images/icon-karma.svg');
+        &::before {
+          background-color: $clr-primary-orange;
+        }
+      }
+      &:nth-child(4) {
+        grid-area: four;
+        background-image: url('../assets/images/icon-calculator.svg');
+        &::before {
+          background-color: $clr-primary-blue;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  main .wrapper-main .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      '. two . '
+      'one two four'
+      'one three four'
+      '. three .';
+  }
+
+  header .wrapper-header h1 {
+    font-size: $fs-xxl;
+  }
+}

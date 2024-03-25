@@ -1,0 +1,164 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+ul li a,
+ol li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 200;
+  src: local("Poppins"), url("../assets/fonts/Poppins-ExtraLight.woff2") format("woff2"), url("../assets/fonts/Poppins-ExtraLight.woff") format("woff");
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  src: local("Poppins"), url("../assets/fonts/Poppins-Regular.woff2") format("woff2"), url("../assets/fonts/Poppins-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Poppins";
+  font-weight: 600;
+  src: local("Poppins"), url("../assets/fonts/Poppins-SemiBold.woff2") format("woff2"), url("../assets/fonts/Poppins-SemiBold.woff") format("woff");
+}
+body {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  background-color: hsl(0, 0%, 98%);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: hsl(234, 12%, 34%);
+  margin-inline: 2rem;
+}
+
+header {
+  margin-block: 2rem 4rem;
+  text-align: center;
+  margin-inline: auto;
+}
+header .wrapper-header {
+  max-width: 540px;
+}
+header .wrapper-header h1 {
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin-block-end: 0.8rem;
+}
+header .wrapper-header h1 span {
+  display: block;
+  font-weight: 600;
+}
+header .wrapper-header p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: hsl(229, 6%, 66%);
+}
+
+main {
+  margin-block-end: 2rem;
+  margin-inline: auto;
+}
+main .wrapper-main {
+  max-width: 1140px;
+}
+main .wrapper-main .grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-areas: "one" "two" "three" "four";
+}
+main .wrapper-main .card {
+  background-color: hsl(0, 0%, 98%);
+  max-width: 350px;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  background-repeat: no-repeat;
+  background-position: 85% 85%;
+  position: relative;
+  overflow: hidden;
+}
+main .wrapper-main .card::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+main .wrapper-main .card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-block-end: 0.8rem;
+}
+main .wrapper-main .card p {
+  font-size: 0.8125rem;
+  color: hsl(229, 6%, 66%);
+  margin-block-end: 6rem;
+}
+main .wrapper-main .card:nth-child(1) {
+  grid-area: one;
+  background-image: url("../assets/images/icon-supervisor.svg");
+}
+main .wrapper-main .card:nth-child(1)::before {
+  background-color: hsl(180, 62%, 55%);
+}
+main .wrapper-main .card:nth-child(2) {
+  grid-area: two;
+  background-image: url("../assets/images/icon-team-builder.svg");
+}
+main .wrapper-main .card:nth-child(2)::before {
+  background-color: hsl(0, 78%, 62%);
+}
+main .wrapper-main .card:nth-child(3) {
+  grid-area: three;
+  background-image: url("../assets/images/icon-karma.svg");
+}
+main .wrapper-main .card:nth-child(3)::before {
+  background-color: hsl(34, 97%, 64%);
+}
+main .wrapper-main .card:nth-child(4) {
+  grid-area: four;
+  background-image: url("../assets/images/icon-calculator.svg");
+}
+main .wrapper-main .card:nth-child(4)::before {
+  background-color: hsl(212, 86%, 64%);
+}
+
+@media (min-width: 800px) {
+  main .wrapper-main .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: ". two . " "one two four" "one three four" ". three .";
+  }
+  header .wrapper-header h1 {
+    font-size: 2.25rem;
+  }
+}/*# sourceMappingURL=main.css.map */

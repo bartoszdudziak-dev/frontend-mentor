@@ -1,0 +1,5 @@
+@mixin center-for-challenge {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+}
