@@ -1,0 +1,122 @@
+@import 'reset', 'variables', 'mixins';
+
+html {
+  font-family: 'Barlow', sans-serif;
+  font-weight: $fw-medium;
+}
+
+body {
+  @include center-for-challenge;
+  background-color: $clr-neutral-light-grayish-blue;
+}
+
+.wrapper {
+  max-width: $wrapper-width;
+  margin-block: 1rem;
+
+  .grid-layout {
+    display: grid;
+    gap: $grid-gap;
+    grid-template-areas:
+      'one'
+      'two'
+      'three'
+      'four'
+      'five';
+
+    .card {
+      padding: $card-padding;
+      box-shadow: 0 5px 10px rgb(0 0 0 / 0.25);
+      border-radius: 0.5rem;
+
+      &__user {
+        @include flex-layout(row, flex-start, center);
+        gap: 1rem;
+        margin-block-end: 1.125rem;
+
+        img {
+          width: 28px;
+          border-radius: 50%;
+        }
+
+        p {
+          font-size: $fs-xs;
+
+          span {
+            font-size: $fs-xxs;
+            display: block;
+          }
+        }
+      }
+
+      &.active {
+        .card__user img {
+          outline: 2px solid lighten($clr-primary-moderate-violet, 15%);
+        }
+      }
+
+      &__title {
+        font-size: $fs-lg;
+        font-weight: $fw-semibold;
+        margin-block-end: 1.5rem;
+      }
+
+      &__review {
+        font-size: $fs-sm;
+      }
+
+      &:nth-child(1) {
+        @include card-colors($clr-primary-moderate-violet, $clr-primary-white);
+        grid-area: one;
+        background-image: url('../assets/images/bg-pattern-quotation.svg');
+        background-repeat: no-repeat;
+        background-position: top right 20%;
+      }
+
+      &:nth-child(2) {
+        @include card-colors(
+          $clr-primary-very-dark-blackish-blue,
+          $clr-primary-white
+        );
+        grid-area: two;
+      }
+
+      &:nth-child(3) {
+        @include card-colors(
+          $clr-primary-white,
+          $clr-primary-very-dark-grayish-blue
+        );
+        grid-area: three;
+      }
+
+      &:nth-child(4) {
+        @include card-colors(
+          $clr-primary-very-dark-blackish-blue,
+          $clr-primary-white
+        );
+        grid-area: four;
+      }
+
+      &:nth-child(5) {
+        @include card-colors(
+          $clr-primary-white,
+          $clr-primary-very-dark-grayish-blue
+        );
+        grid-area: five;
+      }
+    }
+  }
+}
+
+@media (width >= 900px) {
+  .wrapper {
+    max-width: 1100px;
+
+    .grid-layout {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        'one one two five'
+        'three four four five';
+    }
+  }
+}

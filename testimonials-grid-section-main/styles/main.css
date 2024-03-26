@@ -1,0 +1,169 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+ul li a,
+ol li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+@font-face {
+  font-family: "Barlow";
+  font-weight: 500;
+  src: local("Barlow Semi Condensed"), url("../assets/fonts/BarlowSemiCondensed-Medium.woff2") format("woff2"), url("../assets/fonts/BarlowSemiCondensed-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Barlow";
+  font-weight: 600;
+  src: local("Barlow Semi Condensed"), url("../assets/fonts/BarlowSemiCondensed-SemiBold.woff2") format("woff2"), url("../assets/fonts/BarlowSemiCondensed-SemiBold.woff") format("woff");
+}
+html {
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  background-color: hsl(210, 46%, 95%);
+}
+
+.wrapper {
+  max-width: 327px;
+  margin-block: 1rem;
+}
+.wrapper .grid-layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-areas: "one" "two" "three" "four" "five";
+}
+.wrapper .grid-layout .card {
+  padding: 1.5rem 2rem 2rem 2rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+}
+.wrapper .grid-layout .card__user {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-block-end: 1.125rem;
+}
+.wrapper .grid-layout .card__user img {
+  width: 28px;
+  border-radius: 50%;
+}
+.wrapper .grid-layout .card__user p {
+  font-size: 0.75rem;
+}
+.wrapper .grid-layout .card__user p span {
+  font-size: 0.6875rem;
+  display: block;
+}
+.wrapper .grid-layout .card.active .card__user img {
+  outline: 2px solid #a07dd9;
+}
+.wrapper .grid-layout .card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-block-end: 1.5rem;
+}
+.wrapper .grid-layout .card__review {
+  font-size: 0.8125rem;
+}
+.wrapper .grid-layout .card:nth-child(1) {
+  background-color: hsl(263, 55%, 52%);
+  color: hsl(0, 0%, 100%);
+  grid-area: one;
+  background-image: url("../assets/images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: top right 20%;
+}
+.wrapper .grid-layout .card:nth-child(1) span.status {
+  color: rgba(255, 255, 255, 0.5);
+}
+.wrapper .grid-layout .card:nth-child(1) .card__review {
+  color: rgba(255, 255, 255, 0.7);
+}
+.wrapper .grid-layout .card:nth-child(2) {
+  background-color: hsl(219, 29%, 14%);
+  color: hsl(0, 0%, 100%);
+  grid-area: two;
+}
+.wrapper .grid-layout .card:nth-child(2) span.status {
+  color: rgba(255, 255, 255, 0.5);
+}
+.wrapper .grid-layout .card:nth-child(2) .card__review {
+  color: rgba(255, 255, 255, 0.7);
+}
+.wrapper .grid-layout .card:nth-child(3) {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(217, 19%, 35%);
+  grid-area: three;
+}
+.wrapper .grid-layout .card:nth-child(3) span.status {
+  color: rgba(72, 85, 106, 0.5);
+}
+.wrapper .grid-layout .card:nth-child(3) .card__review {
+  color: rgba(72, 85, 106, 0.7);
+}
+.wrapper .grid-layout .card:nth-child(4) {
+  background-color: hsl(219, 29%, 14%);
+  color: hsl(0, 0%, 100%);
+  grid-area: four;
+}
+.wrapper .grid-layout .card:nth-child(4) span.status {
+  color: rgba(255, 255, 255, 0.5);
+}
+.wrapper .grid-layout .card:nth-child(4) .card__review {
+  color: rgba(255, 255, 255, 0.7);
+}
+.wrapper .grid-layout .card:nth-child(5) {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(217, 19%, 35%);
+  grid-area: five;
+}
+.wrapper .grid-layout .card:nth-child(5) span.status {
+  color: rgba(72, 85, 106, 0.5);
+}
+.wrapper .grid-layout .card:nth-child(5) .card__review {
+  color: rgba(72, 85, 106, 0.7);
+}
+
+@media (width >= 900px) {
+  .wrapper {
+    max-width: 1100px;
+  }
+  .wrapper .grid-layout {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "one one two five" "three four four five";
+  }
+}/*# sourceMappingURL=main.css.map */

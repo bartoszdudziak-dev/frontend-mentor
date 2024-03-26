@@ -1,0 +1,25 @@
+@mixin center-for-challenge {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+}
+
+@mixin flex-layout($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin card-colors($background-clr, $font-clr) {
+  background-color: $background-clr;
+  color: $font-clr;
+
+  span.status {
+    color: rgba($font-clr, 0.5);
+  }
+
+  .card__review {
+    color: rgba($font-clr, 0.7);
+  }
+}

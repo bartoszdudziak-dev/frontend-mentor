@@ -1,0 +1,39 @@
+// Colors
+$clr-primary-moderate-violet: hsl(263, 55%, 52%);
+$clr-primary-very-dark-grayish-blue: hsl(217, 19%, 35%);
+$clr-primary-very-dark-blackish-blue: hsl(219, 29%, 14%);
+$clr-primary-white: hsl(0, 0%, 100%);
+
+$clr-neutral-light-gray: hsl(0, 0%, 81%);
+$clr-neutral-light-grayish-blue: hsl(210, 46%, 95%);
+
+// Font
+$fs-xxs: 0.6875rem; // 11px
+$fs-xs: 0.75rem; // 12px
+$fs-sm: 0.8125rem; // 13px
+$fs-md: 1rem; // 16px
+$fs-lg: 1.25rem; // 20px
+$fs-xl: 2rem; // 32px
+
+$fw-medium: 500;
+$fw-semibold: 600;
+
+@font-face {
+  font-family: 'Barlow';
+  font-weight: $fw-medium;
+  src: local('Barlow Semi Condensed'),
+    url('../assets/fonts/BarlowSemiCondensed-Medium.woff2') format('woff2'),
+    url('../assets/fonts/BarlowSemiCondensed-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-weight: $fw-semibold;
+  src: local('Barlow Semi Condensed'),
+    url('../assets/fonts/BarlowSemiCondensed-SemiBold.woff2') format('woff2'),
+    url('../assets/fonts/BarlowSemiCondensed-SemiBold.woff') format('woff');
+}
+
+// Layout
+$grid-gap: 1.5rem;
+$wrapper-width: 327px;
+$card-padding: 1.5rem 2rem 2rem 2rem;
