@@ -75,7 +75,7 @@ body {
 
       &:nth-child(2) {
         @include card-colors(
-          $clr-primary-very-dark-blackish-blue,
+          $clr-primary-very-dark-grayish-blue,
           $clr-primary-white
         );
         grid-area: two;

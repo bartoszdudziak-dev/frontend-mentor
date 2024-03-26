@@ -114,7 +114,7 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
 .wrapper .grid-layout .card:nth-child(2) {
-  background-color: hsl(219, 29%, 14%);
+  background-color: hsl(217, 19%, 35%);
   color: hsl(0, 0%, 100%);
   grid-area: two;
 }
