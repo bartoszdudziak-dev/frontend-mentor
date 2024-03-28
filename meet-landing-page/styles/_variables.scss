@@ -1,0 +1,57 @@
+// Colors
+$clr-primary-greenish-blue: rgb(77, 150, 168);
+$clr-primary-dark-violet: rgb(133, 95, 177);
+$clr-primary-very-dark-blue: rgb(40, 40, 61);
+$clr-primary-gray: rgb(135, 135, 157);
+
+$clr-neutral-cyan: rgb(143, 227, 249);
+$clr-neutral-violet: rgb(217, 184, 255);
+$clr-neutral-white: rgb(250, 250, 250);
+
+// Typography
+$fw-medium: 500;
+$fw-black: 900;
+
+// Mobile font size
+$fs-mobile-md: 1rem; // 16
+$fs-mobile-lg: 1rem; // 16
+$fs-mobile-xl: 2rem; // 32
+$fs-mobile-xxl: 2.5rem; // 40
+
+// Tables font size
+$fs-tablet-md: 1rem; // 16
+$fs-tablet-lg: 1rem; // 16
+$fs-tablet-xl: 2.5rem; // 40
+$fs-tablet-xxl: 3rem; // 48
+
+// Desktop font size
+$fs-desktop-md: 1rem; // 16
+$fs-desktop-lg: 1.125rem; // 18
+$fs-desktop-xl: 2.5rem; // 40
+$fs-desktop-xxl: 4rem; // 64
+
+$line-height-md: 1.625rem; // 26
+$line-height-lg: 2.25rem; // 36
+$line-height-xl: 2.75rem; // 44
+$line-height-xxl: 4rem; // 64
+
+@font-face {
+  font-family: 'Red Hat Display';
+  font-weight: $fw-medium;
+  src: local('Red Hat Display'),
+    url('../assets/fonts/RedHatDisplay-Medium.woff2') format('woff2'),
+    url('../assets/fonts/RedHatDisplay-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Red Hat Display';
+  font-weight: $fw-black;
+  src: local('Red Hat Display'),
+    url('../assets/fonts/RedHatDisplay-Black.woff2') format('woff2'),
+    url('../assets/fonts/RedHatDisplay-Black.woff') format('woff');
+}
+
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+$footer-padding-mobile: 6rem 2.5rem 4.5rem 2.5rem;
+$footer-padding-tablet: 6rem 6rem 4.5rem 6rem;

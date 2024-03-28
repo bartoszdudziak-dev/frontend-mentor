@@ -1,0 +1,16 @@
+@mixin flex-layout($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin button-style($bg, $padding-block, $padding-inline) {
+  @include flex-layout(row, center, center);
+  background-color: $bg;
+  padding-block: $padding-block;
+  padding-inline: $padding-inline;
+  border-radius: 2rem;
+  font-size: $fs-mobile-md;
+  color: $clr-neutral-white;
+}

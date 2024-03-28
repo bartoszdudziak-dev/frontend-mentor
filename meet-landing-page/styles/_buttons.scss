@@ -1,0 +1,22 @@
+@import 'variables';
+
+.btn {
+  font-weight: $fw-black;
+  transition: opacity 0.5s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn--lg {
+  @include button-style($clr-primary-greenish-blue, 1rem, 2.5rem);
+  span {
+    padding-inline-start: 0.25rem;
+    color: $clr-neutral-cyan;
+  }
+}
+
+.btn--sm {
+  @include button-style($clr-primary-dark-violet, 1rem, 1.75rem);
+}

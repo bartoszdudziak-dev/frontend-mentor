@@ -1,0 +1,310 @@
+@import 'reset', 'variables', 'mixins', 'buttons';
+
+html {
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: $fw-medium;
+}
+
+body {
+  display: grid;
+  place-content: stretch;
+  min-height: 100dvh;
+  background-color: $clr-neutral-white;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+header {
+  @include flex-layout(column, center, center);
+  padding-block-start: 3rem;
+  text-align: center;
+
+  .logo {
+    margin-block-end: 3.375rem;
+  }
+
+  .banner {
+    margin-block-end: 3rem;
+  }
+
+  .group-chat--section {
+    @include flex-layout(column, center, center);
+    margin-inline: 1.5rem;
+    max-width: 540px;
+
+    h1 {
+      margin-inline: auto;
+      max-width: 10ch;
+      color: $clr-primary-very-dark-blue;
+      font-size: $fs-mobile-xxl;
+      line-height: $line-height-xl;
+      padding-block-end: 1.5rem;
+    }
+
+    p {
+      color: $clr-primary-gray;
+      font-size: $fs-mobile-md;
+      line-height: $line-height-md;
+      padding-block-end: 2rem;
+    }
+
+    .wrapper--btn {
+      @include flex-layout(column, center, center);
+      gap: 1rem;
+    }
+  }
+}
+
+main {
+  padding-inline: 1.5rem;
+  text-align: center;
+  position: relative;
+
+  .wrapper--grid {
+    margin-block-end: 3.75rem;
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      place-items: center;
+
+      img {
+        border-radius: 0.5rem;
+      }
+    }
+  }
+
+  .modern-meetings--section {
+    margin-inline: auto;
+    max-width: 540px;
+
+    p {
+      font-size: $fs-mobile-md;
+      font-weight: $fw-medium;
+      color: $clr-primary-gray;
+      line-height: $line-height-md;
+    }
+
+    .subtitle {
+      color: $clr-primary-greenish-blue;
+      font-weight: $fw-black;
+      text-transform: uppercase;
+      letter-spacing: 0.25rem;
+      padding-block-end: 1.5rem;
+    }
+
+    h2 {
+      margin-inline: auto;
+      max-width: 15ch;
+      color: $clr-primary-very-dark-blue;
+      font-weight: $fw-black;
+      font-size: $fs-mobile-xl;
+      line-height: $line-height-lg;
+      padding-block-end: 2rem;
+    }
+  }
+
+  .decoration {
+    @include flex-layout(row, center, center);
+    margin-inline: auto;
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    color: $clr-primary-gray;
+    border: 1px solid rgba($clr-primary-gray, 0.25);
+    border-radius: 50%;
+    z-index: 999;
+    background-color: $clr-neutral-white;
+    margin-block-start: 12rem;
+
+    span {
+      font-size: $fs-mobile-md;
+      font-weight: $fw-black;
+    }
+
+    &:before {
+      content: '';
+      width: 1px;
+      height: 84px;
+      background-color: rgba($clr-primary-gray, 0.25);
+      position: absolute;
+      top: -85px;
+    }
+
+    &:first-child {
+      margin-block-end: 4rem;
+    }
+
+    &:last-child {
+      bottom: -28px;
+    }
+  }
+}
+
+footer {
+  padding: $footer-padding-mobile;
+  text-align: center;
+
+  background-image: url('../assets/mobile/image-footer.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba($clr-primary-greenish-blue, $alpha: 0.8);
+    z-index: 1;
+  }
+
+  .experience-together--section {
+    @include flex-layout(column, center, center);
+    position: relative;
+    z-index: 999;
+
+    h2 {
+      margin-inline: auto;
+      max-width: 15ch;
+      font-size: $fs-mobile-xl;
+      font-weight: $fw-black;
+      color: $clr-neutral-white;
+      line-height: $line-height-lg;
+      padding-block-end: 2rem;
+    }
+
+    p {
+      font-size: $fs-mobile-md;
+      font-weight: $fw-medium;
+      color: $clr-neutral-white;
+      line-height: $line-height-md;
+      padding-block-end: 2.5rem;
+    }
+
+    button {
+      background-color: $clr-primary-dark-violet;
+      span {
+        color: $clr-neutral-violet;
+      }
+    }
+  }
+}
+
+// TABLET
+@media (width >= $bp-tablet) {
+  footer {
+    background-image: url('../assets/tablet/image-footer.jpg');
+    padding: $footer-padding-tablet;
+  }
+
+  header .group-chat--section,
+  main .modern-meetings--section,
+  footer .experience-together--section {
+    p:not(.subtitle) {
+      font-size: $fs-tablet-md;
+    }
+    h1 {
+      font-size: $fs-tablet-xxl;
+      line-height: $line-height-xxl;
+    }
+    h2 {
+      font-size: $fs-tablet-xl;
+      line-height: $line-height-xl;
+    }
+  }
+
+  header .group-chat--section .wrapper--btn {
+    flex-direction: row;
+  }
+  main .wrapper--grid {
+    max-width: 1100px;
+    margin-inline: auto;
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// DESKTOP
+@media (width >= $bp-desktop) {
+  footer {
+    background-image: url('../assets/desktop/image-footer.jpg');
+  }
+
+  header .group-chat--section,
+  main .modern-meetings--section,
+  footer .experience-together--section {
+    p:not(.subtitle) {
+      font-size: $fs-desktop-lg;
+    }
+    h1 {
+      font-size: $fs-desktop-xxl;
+      line-height: $line-height-xxl;
+    }
+    h2 {
+      font-size: $fs-desktop-xl;
+      line-height: $line-height-xl;
+    }
+  }
+
+  header {
+    overflow: hidden;
+
+    .banner {
+      display: none;
+    }
+
+    .group-chat--section {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: '';
+        height: clamp(50%, 30vh, 100%);
+        top: 0%;
+        left: clamp(110%, 50vw, 130%);
+        right: -100%;
+
+        background: url('../assets/desktop/image-hero-right.png') left no-repeat;
+        background-size: contain;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        height: clamp(50%, 30vh, 100%);
+        top: 0%;
+        right: clamp(110%, 50vw, 130%);
+        left: -100%;
+
+        background: url('../assets/desktop/image-hero-left.png') right no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+
+  footer .experience-together--section {
+    @include flex-layout(row, center, center);
+    gap: 6rem;
+    max-width: 1110px;
+    margin-inline: auto;
+
+    h2,
+    p {
+      padding: 0;
+      text-align: left;
+    }
+
+    p {
+      flex-grow: 0;
+      max-width: 350px;
+    }
+  }
+}
