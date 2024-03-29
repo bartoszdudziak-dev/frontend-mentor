@@ -1,0 +1,30 @@
+// Colors
+$clr-primary-400: hsl(31, 77%, 52%);
+$clr-primary-500: hsl(184, 100%, 22%);
+$clr-primary-700: hsl(179, 100%, 13%);
+
+$clr-neutral-100: hsla(0, 0%, 100%, 0.75);
+$clr-neutral-300: hsl(0, 0%, 95%);
+
+// Typography
+$fw-400: 400;
+$fw-700: 700;
+
+@font-face {
+  font-family: 'Lexend Deca';
+  font-weight: $fw-400;
+  src: local('Lexend Deca'),
+    url('../assets/fonts/LexendDeca-Regular.woff2') format('woff2'),
+    url('../assets/fonts/LexendDeca-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Big Shoulders Display';
+  font-weight: $fw-700;
+  src: local('Big Shoulders Display'),
+    url('../assets/fonts/BigShouldersDisplay-Bold.woff2') format('woff2'),
+    url('../assets/fonts/BigShouldersDisplay-Bold.woff') format('woff');
+}
+
+$fs-300: 0.9375rem;
+$fs-400: 1rem;
+$fs-700: 2.5rem;

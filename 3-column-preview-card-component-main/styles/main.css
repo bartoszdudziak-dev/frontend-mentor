@@ -1,0 +1,111 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h2,
+p,
+button {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  background-color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Lexend Deca";
+  font-weight: 400;
+  src: local("Lexend Deca"), url("../assets/fonts/LexendDeca-Regular.woff2") format("woff2"), url("../assets/fonts/LexendDeca-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Big Shoulders Display";
+  font-weight: 700;
+  src: local("Big Shoulders Display"), url("../assets/fonts/BigShouldersDisplay-Bold.woff2") format("woff2"), url("../assets/fonts/BigShouldersDisplay-Bold.woff") format("woff");
+}
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100dvh;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  background-color: hsl(0, 0%, 95%);
+}
+
+.grid-layout {
+  display: grid;
+  max-width: 920px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.grid-layout .card {
+  padding: 3rem;
+}
+.grid-layout .card__img {
+  margin-block-end: 2.2rem;
+}
+.grid-layout .card__title {
+  font-family: "Big Shoulders Display", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 95%);
+  margin-block-end: 1.6rem;
+}
+.grid-layout .card__description {
+  font-size: 0.9375rem;
+  color: hsla(0, 0%, 100%, 0.75);
+  line-height: 1.6;
+  margin-block-end: 1.6rem;
+}
+.grid-layout .card:nth-child(1) {
+  background-color: hsl(31, 77%, 52%);
+}
+.grid-layout .card:nth-child(1) button {
+  color: hsl(31, 77%, 52%);
+}
+.grid-layout .card:nth-child(2) {
+  background-color: hsl(184, 100%, 22%);
+}
+.grid-layout .card:nth-child(2) button {
+  color: hsl(184, 100%, 22%);
+}
+.grid-layout .card:nth-child(3) {
+  background-color: hsl(179, 100%, 13%);
+}
+.grid-layout .card:nth-child(3) button {
+  color: hsl(179, 100%, 13%);
+}
+.grid-layout .card button {
+  font-size: 0.9375rem;
+  background-color: hsl(0, 0%, 95%);
+  border: 1px solid hsl(0, 0%, 95%);
+  border-radius: 1.5rem;
+  padding: 0.75rem 2rem;
+  transition: all 0.5s ease-in-out;
+}
+.grid-layout .card button:hover {
+  color: hsl(0, 0%, 95%);
+  background-color: transparent;
+}
+
+@media (width >= 768px) {
+  .grid-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-layout .card__description {
+    margin-block-end: 5rem;
+  }
+}/*# sourceMappingURL=main.css.map */

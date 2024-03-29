@@ -1,0 +1,92 @@
+@import 'reset', 'variables';
+
+body {
+  // Center component for challenge
+  display: grid;
+  place-content: center;
+  min-height: 100dvh;
+
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: $fw-400;
+
+  background-color: $clr-neutral-300;
+}
+
+.grid-layout {
+  display: grid;
+  max-width: 920px;
+
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  .card {
+    padding: 3rem;
+
+    &__img {
+      margin-block-end: 2.2rem;
+    }
+
+    &__title {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-size: $fs-700;
+      font-weight: $fw-700;
+      text-transform: uppercase;
+      color: $clr-neutral-300;
+      margin-block-end: 1.6rem;
+    }
+
+    &__description {
+      font-size: $fs-300;
+      color: $clr-neutral-100;
+      line-height: 1.6;
+      margin-block-end: 1.6rem;
+    }
+
+    &:nth-child(1) {
+      background-color: $clr-primary-400;
+      button {
+        color: $clr-primary-400;
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: $clr-primary-500;
+      button {
+        color: $clr-primary-500;
+      }
+    }
+
+    &:nth-child(3) {
+      background-color: $clr-primary-700;
+      button {
+        color: $clr-primary-700;
+      }
+    }
+
+    button {
+      font-size: $fs-300;
+      background-color: $clr-neutral-300;
+      border: 1px solid $clr-neutral-300;
+      border-radius: 1.5rem;
+      padding: 0.75rem 2rem;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        color: $clr-neutral-300;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+@media (width >= 768px) {
+  .grid-layout {
+    grid-template-columns: repeat(3, 1fr);
+
+    .card {
+      &__description {
+        margin-block-end: 5rem;
+      }
+    }
+  }
+}
