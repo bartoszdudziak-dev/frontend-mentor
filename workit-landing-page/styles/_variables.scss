@@ -1,0 +1,54 @@
+// LAYOUT
+$bp-mobile: 768px;
+$bp-desktop: 1024px;
+$bp-desktop-lg: 1800px;
+
+// COLORS
+// Primary
+$clr-primary-400: rgb(68, 255, 161); // Eucaplyptus
+$clr-primary-700: rgb(88, 77, 98); // Davy's Grey
+$clr-primary-900: rgb(36, 5, 62); // Dark Purple
+
+// Neutral
+$clr-neutral-100: rgb(255, 255, 255); // White
+$clr-neutral-300: rgb(253, 250, 255); // Ghost white
+
+// TYPOGRAPHY
+// Font weight
+$fw-400: 400;
+$fw-600: 600;
+
+// Font family
+@font-face {
+  font-weight: $fw-400;
+  font-family: 'Manrope';
+  src: local('Manrope'),
+    url('../assets/fonts/manrope/static/Manrope-Regular.ttf');
+}
+@font-face {
+  font-weight: $fw-600;
+  font-family: 'Fraunces';
+  src: local('Fraunces'),
+    url('../assets/fonts/fraunces/static/Fraunces_144pt-SemiBold.ttf');
+}
+
+// Font size and Line height
+// Heading L
+$fs-900: clamp(3.125rem, 2.4648rem + 2.8169vw, 5rem);
+$lh-900: clamp(3.125rem, 2.4648rem + 2.8169vw, 5rem);
+
+// Heading M
+$fs-700: clamp(2rem, 1.4718rem + 2.2535vw, 3.5rem);
+$lh-700: clamp(3rem, 2.6479rem + 1.5023vw, 4rem);
+
+// Heading S
+$fs-600: clamp(1.75rem, 1.662rem + 0.3756vw, 2rem);
+$lh-600: clamp(2.25rem, 2.162rem + 0.3756vw, 2.5rem);
+
+// Text L
+$fs-500: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);
+$lh-500: clamp(2.25rem, 2.162rem + 0.3756vw, 2.5rem);
+
+// Text M
+$fs-400: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+$lh-400: clamp(1.75rem, 1.662rem + 0.3756vw, 2rem);

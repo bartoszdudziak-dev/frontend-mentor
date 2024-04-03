@@ -1,0 +1,313 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "Manrope";
+  src: local("Manrope"), url("../assets/fonts/manrope/static/Manrope-Regular.ttf");
+}
+@font-face {
+  font-weight: 600;
+  font-family: "Fraunces";
+  src: local("Fraunces"), url("../assets/fonts/fraunces/static/Fraunces_144pt-SemiBold.ttf");
+}
+body {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+  line-height: clamp(1.75rem, 1.662rem + 0.3756vw, 2rem);
+  text-align: center;
+  background-color: rgb(253, 250, 255);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fraunces", sans-serif;
+  font-weight: 600;
+}
+
+button {
+  font-weight: 600;
+}
+
+.logo {
+  max-width: 6rem;
+}
+
+.btn {
+  color: rgb(36, 5, 62);
+  background-color: rgb(68, 255, 161);
+  padding: 0.75em 1.5em;
+  outline: 2px solid rgb(68, 255, 161);
+  transition: all 0.5s;
+}
+.btn:hover {
+  background-color: transparent;
+  color: rgb(68, 255, 161);
+}
+
+.site {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+header {
+  padding: 2rem 1rem 0rem 1rem;
+  margin-block-end: 4rem;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+header::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: -15%;
+  position: absolute;
+  z-index: -1;
+  display: block;
+  background-color: rgb(36, 5, 62);
+  -webkit-clip-path: ellipse(100% 55% at 48% 44%);
+          clip-path: ellipse(100% 55% at 48% 44%);
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-inline: 1em;
+}
+
+.navbar__btn {
+  text-decoration: underline;
+  text-decoration-color: rgb(68, 255, 161);
+  text-underline-offset: 0.4rem;
+  text-decoration-thickness: 0.15rem;
+  transition: all 0.5s;
+}
+.navbar__btn:hover {
+  color: rgb(68, 255, 161);
+}
+
+.hero {
+  max-width: 45ch;
+  margin-inline: auto;
+  margin-block: 4rem;
+}
+
+.hero__title {
+  font-size: clamp(3.125rem, 2.4648rem + 2.8169vw, 5rem);
+  line-height: clamp(3.125rem, 2.4648rem + 2.8169vw, 5rem);
+  margin-block-end: 2.5rem;
+}
+.hero__title span {
+  text-decoration: underline;
+  text-decoration-color: rgb(68, 255, 161);
+  text-underline-offset: 0.4rem;
+  text-decoration-thickness: 0.15rem;
+}
+
+.hero__img {
+  margin-inline: auto;
+  max-width: clamp(18.75rem, 37.559vw + 11.197rem, 45rem);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.benefits-section {
+  display: grid;
+  gap: 2.5rem;
+  padding-block-end: 5rem;
+  background-color: rgb(255, 255, 255);
+  z-index: -1;
+  padding-inline: 1rem;
+  position: relative;
+}
+.benefits-section::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+  display: block;
+  background-color: rgb(253, 250, 255);
+  -webkit-clip-path: ellipse(100% 55% at 48% 44%);
+          clip-path: ellipse(100% 55% at 48% 44%);
+}
+
+.benefit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefit__number {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Fraunces", sans-serif;
+  font-size: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);
+  line-height: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);
+  border: 1px solid rgb(88, 77, 98);
+  border-radius: 50%;
+  padding: 0.6em 0.914em;
+  margin-block-end: 1rem;
+}
+
+.benefit__title {
+  font-size: clamp(1.75rem, 1.662rem + 0.3756vw, 2rem);
+  line-height: clamp(2.25rem, 2.162rem + 0.3756vw, 2.5rem);
+  margin-block-end: 1.5rem;
+}
+
+.apply-section {
+  background-color: rgb(255, 255, 255);
+  padding-inline: 1rem;
+  padding-block-start: 18rem;
+  position: relative;
+  z-index: 1;
+}
+
+.apply-content {
+  position: relative;
+  background-color: rgb(36, 5, 62);
+  color: rgb(255, 255, 255);
+  padding: 2em;
+  position: relative;
+}
+
+.apply-content__img {
+  position: absolute;
+  max-width: 280px;
+  top: -230px;
+  left: 50%;
+  z-index: -1;
+  transform: translateX(-50%);
+}
+
+.apply-content__title {
+  font-size: clamp(2rem, 1.4718rem + 2.2535vw, 3.5rem);
+  line-height: clamp(3rem, 2.6479rem + 1.5023vw, 4rem);
+  margin-block-end: 1rem;
+}
+
+.apply-content__description {
+  margin-block-end: 1.5rem;
+}
+
+footer {
+  background-color: rgb(255, 255, 255);
+  padding-block-start: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__content {
+  max-width: 7.5rem;
+  margin-inline: auto;
+  padding-block-end: 4rem;
+}
+
+.footer__logo {
+  margin-inline: auto;
+  margin-block-end: 3.75rem;
+}
+
+.footer__socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+@media (width >= 768px) {
+  .navbar {
+    max-width: 80%;
+    margin-inline: auto;
+  }
+  .benefits-section {
+    gap: 3rem;
+    padding-inline: 6rem;
+  }
+  .benefit {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 2rem;
+  }
+  .apply-content {
+    max-width: 70%;
+    margin-inline-start: auto;
+    text-align: left;
+  }
+  .apply-content__img {
+    left: 0;
+  }
+}
+@media (width >= 1024px) {
+  .benefits-section {
+    grid-template-columns: repeat(3, 1fr);
+    padding-inline: 1rem;
+  }
+  .benefit {
+    flex-direction: column;
+  }
+  .benefit__content {
+    text-align: center;
+  }
+  .apply-content {
+    max-width: 730px;
+    margin-inline-end: 5%;
+    padding: 3.8em;
+  }
+  .apply-content__img {
+    max-width: clamp(17.5rem, -10.8077rem + 44.2308vw, 29rem);
+    left: clamp(-5rem, -10.8077rem + 44.2308vw, -20rem);
+  }
+}
+@media (width >= 1800px) {
+  .apply-content {
+    margin-inline: auto;
+  }
+}/*# sourceMappingURL=main.css.map */

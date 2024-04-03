@@ -1,0 +1,13 @@
+@mixin flex($direcion: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direcion;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin underline-decoration {
+  text-decoration: underline;
+  text-decoration-color: $clr-primary-400;
+  text-underline-offset: 0.4rem;
+  text-decoration-thickness: 0.15rem;
+}
