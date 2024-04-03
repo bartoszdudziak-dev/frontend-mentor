@@ -150,6 +150,11 @@ main {
   font-size: $fs-600;
   line-height: $lh-600;
   margin-block-end: 1.5rem;
+  color: $clr-primary-900;
+}
+
+.benefit__description {
+  color: $clr-primary-700;
 }
 
 .apply-section {

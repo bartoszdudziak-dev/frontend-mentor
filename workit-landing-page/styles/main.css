@@ -197,6 +197,11 @@ main {
   font-size: clamp(1.75rem, 1.662rem + 0.3756vw, 2rem);
   line-height: clamp(2.25rem, 2.162rem + 0.3756vw, 2.5rem);
   margin-block-end: 1.5rem;
+  color: rgb(36, 5, 62);
+}
+
+.benefit__description {
+  color: rgb(88, 77, 98);
 }
 
 .apply-section {
