@@ -262,6 +262,12 @@ footer {
 }
 
 @media (width >= 768px) {
+  header {
+    background: url("../assets/images/bg-pattern-1.svg"), url("../assets/images/bg-pattern-2.svg");
+    background-repeat: no-repeat;
+    background-position: top 20% left -20%, center right -10%;
+    background-size: 30%, 20%;
+  }
   .navbar {
     max-width: 80%;
     margin-inline: auto;
@@ -280,6 +286,18 @@ footer {
     max-width: 70%;
     margin-inline-start: auto;
     text-align: left;
+    position: relative;
+  }
+  .apply-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -30%;
+    background: url("../assets/images/bg-pattern-3.svg");
+    background-repeat: no-repeat;
+    background-position: bottom right 10%;
   }
   .apply-content__img {
     left: 0;
