@@ -1,0 +1,123 @@
+@import 'reset', 'variables', 'mixins';
+
+html {
+  font-family: $ff-primary;
+  font-weight: $fw-500;
+  font-size: $fs-400;
+  line-height: 1.6;
+}
+
+body {
+  // only for this challenge
+  @include center-layout;
+
+  background-color: $clr-primary-300;
+  background-image: url('../assets/images/pattern-background-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+}
+
+.card {
+  width: min(450px, 90%);
+  margin-inline: auto;
+
+  background-color: $clr-primary-100;
+  border-radius: $br-400;
+  overflow: hidden;
+}
+
+.card__img {
+  margin-block-end: 2em;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__content {
+  width: 90%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.card__title {
+  font-size: $fs-600;
+  font-weight: $fw-900;
+  color: $clr-neutral-600;
+  margin-block-end: 1em;
+}
+
+.card__description {
+  color: $clr-neutral-400;
+  margin-block-end: 1.5em;
+  max-width: 30ch;
+  margin-inline: auto;
+}
+
+.card__plan {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 2.5em;
+
+  font-size: $fs-300;
+  background-color: $clr-neutral-300;
+  border-radius: $br-300;
+  padding: 1.5em 2em;
+}
+
+.card__plan-content {
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+.card__plan-title {
+  font-size: inherit;
+  color: $clr-neutral-600;
+}
+
+.card__plan-price {
+  color: $clr-neutral-400;
+}
+
+.btn {
+  font-weight: $fw-700;
+  transition: all 0.5s ease-out;
+
+  &:not(.card__cancel-btn):hover {
+    opacity: 0.75;
+  }
+}
+
+.card__plan-btn {
+  color: $clr-primary-500;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.card__payment-btn {
+  margin-block-end: 1.5em;
+  padding: 1em;
+  background-color: $clr-primary-500;
+  color: $clr-primary-100;
+  border-radius: $br-300;
+  box-shadow: 0 5px 10px rgba($clr-primary-500, $alpha: 0.5);
+}
+
+.card__cancel-btn {
+  color: $clr-neutral-400;
+  margin-block-end: 2.5em;
+
+  &:hover {
+    color: $clr-neutral-600;
+  }
+}
+
+@media (width > 375px) {
+  body {
+    background-image: url('../assets/images/pattern-background-desktop.svg');
+  }
+}

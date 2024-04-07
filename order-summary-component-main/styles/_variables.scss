@@ -1,0 +1,45 @@
+// Colors
+$clr-primary-100: #ffffff;
+$clr-primary-300: hsl(225, 100%, 94%);
+$clr-primary-500: hsl(245, 75%, 52%);
+
+$clr-neutral-300: hsl(225, 100%, 98%);
+$clr-neutral-400: hsl(224, 23%, 55%);
+$clr-neutral-600: hsl(223, 47%, 23%);
+
+// Typography
+$fs-600: clamp(1.375rem, 0.563vw + 1.243rem, 1.75rem);
+$fs-400: clamp(0.938rem, 0.094vw + 0.915rem, 1rem);
+$fs-300: clamp(0.875rem, 0.094vw + 0.853rem, 0.938rem);
+
+$fw-500: 500;
+$fw-700: 700;
+$fw-900: 900;
+
+@font-face {
+  font-weight: $fw-500;
+  font-family: 'Red Hat Display';
+  src: local('Red Hat Display'),
+    url('../assets/fonts/RedHatDisplay-Medium.woff2') format('woff2'),
+    url('../assets/fonts/RedHatDisplay-Medium.woff') format('woff');
+}
+@font-face {
+  font-weight: $fw-700;
+  font-family: 'Red Hat Display';
+  src: local('Red Hat Display'),
+    url('../assets/fonts/RedHatDisplay-Bold.woff2') format('woff2'),
+    url('../assets/fonts/RedHatDisplay-Bold.woff') format('woff');
+}
+@font-face {
+  font-weight: $fw-900;
+  font-family: 'Red Hat Display';
+  src: local('Red Hat Display'),
+    url('../assets/fonts/RedHatDisplay-Black.woff2') format('woff2'),
+    url('../assets/fonts/RedHatDisplay-Black.woff') format('woff');
+}
+
+$ff-primary: 'Red Hat Display', sans-serif;
+
+// Other
+$br-400: 1rem;
+$br-300: 0.75rem;

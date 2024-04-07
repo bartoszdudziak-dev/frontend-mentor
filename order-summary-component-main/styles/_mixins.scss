@@ -1,0 +1,5 @@
+@mixin center-layout {
+  display: grid;
+  min-height: 100dvh;
+  place-content: center;
+}

@@ -1,0 +1,161 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: "Red Hat Display";
+  src: local("Red Hat Display"), url("../assets/fonts/RedHatDisplay-Medium.woff2") format("woff2"), url("../assets/fonts/RedHatDisplay-Medium.woff") format("woff");
+}
+@font-face {
+  font-weight: 700;
+  font-family: "Red Hat Display";
+  src: local("Red Hat Display"), url("../assets/fonts/RedHatDisplay-Bold.woff2") format("woff2"), url("../assets/fonts/RedHatDisplay-Bold.woff") format("woff");
+}
+@font-face {
+  font-weight: 900;
+  font-family: "Red Hat Display";
+  src: local("Red Hat Display"), url("../assets/fonts/RedHatDisplay-Black.woff2") format("woff2"), url("../assets/fonts/RedHatDisplay-Black.woff") format("woff");
+}
+html {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.938rem, 0.094vw + 0.915rem, 1rem);
+  line-height: 1.6;
+}
+
+body {
+  display: grid;
+  min-height: 100dvh;
+  place-content: center;
+  background-color: hsl(225, 100%, 94%);
+  background-image: url("../assets/images/pattern-background-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+}
+
+.card {
+  width: min(450px, 90%);
+  margin-inline: auto;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card__img {
+  margin-block-end: 2em;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__content {
+  width: 90%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.card__title {
+  font-size: clamp(1.375rem, 0.563vw + 1.243rem, 1.75rem);
+  font-weight: 900;
+  color: hsl(223, 47%, 23%);
+  margin-block-end: 1em;
+}
+
+.card__description {
+  color: hsl(224, 23%, 55%);
+  margin-block-end: 1.5em;
+  max-width: 30ch;
+  margin-inline: auto;
+}
+
+.card__plan {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 2.5em;
+  font-size: clamp(0.875rem, 0.094vw + 0.853rem, 0.938rem);
+  background-color: hsl(225, 100%, 98%);
+  border-radius: 0.75rem;
+  padding: 1.5em 2em;
+}
+
+.card__plan-content {
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+.card__plan-title {
+  font-size: inherit;
+  color: hsl(223, 47%, 23%);
+}
+
+.card__plan-price {
+  color: hsl(224, 23%, 55%);
+}
+
+.btn {
+  font-weight: 700;
+  transition: all 0.5s ease-out;
+}
+.btn:not(.card__cancel-btn):hover {
+  opacity: 0.75;
+}
+
+.card__plan-btn {
+  color: hsl(245, 75%, 52%);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.card__payment-btn {
+  margin-block-end: 1.5em;
+  padding: 1em;
+  background-color: hsl(245, 75%, 52%);
+  color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 5px 10px rgba(56, 41, 224, 0.5);
+}
+
+.card__cancel-btn {
+  color: hsl(224, 23%, 55%);
+  margin-block-end: 2.5em;
+}
+.card__cancel-btn:hover {
+  color: hsl(223, 47%, 23%);
+}
+
+@media (width > 375px) {
+  body {
+    background-image: url("../assets/images/pattern-background-desktop.svg");
+  }
+}/*# sourceMappingURL=main.css.map */
