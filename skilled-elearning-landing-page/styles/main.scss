@@ -1,0 +1,233 @@
+@import 'reset', 'variables';
+
+html {
+  font-family: $ff-primary;
+  font-weight: $fw-500;
+  color: $clr-neutral-300;
+}
+
+body {
+  background-color: $clr-neutral-100;
+  font-size: $fs-400;
+  line-height: $lh-400;
+}
+
+.site {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.header {
+  padding-block: 2em;
+  margin-block-end: 2em;
+  z-index: 1;
+  @media (width >= $bp-tablet) {
+    margin-block-end: 5em;
+  }
+}
+
+.main {
+  background: linear-gradient(to top, $clr-neutral-200, $clr-neutral-100);
+}
+
+.footer {
+  background-color: $clr-primary-800;
+  padding-block: 2em;
+}
+
+.wrapper {
+  width: min(95%, 1100px);
+  margin-inline: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.logo {
+  max-width: 5.625rem;
+
+  @media (width >= 1024px) {
+    max-width: 6.875rem;
+  }
+}
+
+.btn {
+  font-weight: $fw-700;
+  padding: 0.5em 1.5em;
+  border-radius: 2em;
+  position: relative;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $clr-neutral-100;
+  border-radius: inherit;
+
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.btn:hover::after,
+.btn:focus::after,
+.card__btn:hover,
+.card__btn:focus {
+  opacity: 0.4;
+}
+
+.header__btn {
+  color: $clr-neutral-100;
+  background-color: $clr-primary-800;
+}
+
+.footer__btn {
+  color: $clr-neutral-100;
+  background: $clr-primary-600;
+}
+
+.header .wrapper.flex,
+.footer .wrapper.flex {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-section {
+  @media (width >= $bp-tablet) {
+    margin-block-end: 10em;
+  }
+
+  @media (width >= $bp-desktop) {
+    margin-block-end: 15em;
+  }
+}
+
+.hero__content {
+  @media (width >= $bp-tablet) {
+    max-width: 50%;
+  }
+}
+
+.hero .wrapper.flex {
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+
+  @media (width >= $bp-tablet) {
+    flex-direction: row;
+  }
+}
+
+.hero__img {
+  @media (width >= $bp-tablet) {
+    position: absolute;
+    max-width: 640px;
+    top: -200px;
+    right: -280px;
+  }
+
+  @media (width >= $bp-desktop) {
+    max-width: 990px;
+    top: -330px;
+    right: -500px;
+  }
+}
+
+.hero__title {
+  font-size: $fs-900;
+  font-weight: $fw-800;
+  line-height: $lh-900;
+  color: $clr-primary-800;
+  margin-block-end: 0.65em;
+}
+
+.hero__description {
+  margin-block-end: 1.5em;
+}
+
+.hero__btn {
+  padding: 1em 2.25em;
+  background: $clr-primary-400;
+  color: $clr-neutral-100;
+}
+
+.courses-section {
+  margin-block-end: 5em;
+}
+
+.grid {
+  display: grid;
+  row-gap: 2.5em;
+
+  @media (width >= $bp-tablet-sm) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3.5em;
+    column-gap: 0.75em;
+  }
+  @media (width >= $bp-desktop-sm) {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 5em;
+    column-gap: 1.875em;
+  }
+}
+
+.grid > * {
+  box-shadow: 5px 5px 10px rgba($clr-neutral-600, $alpha: 0.5);
+}
+
+.check-out {
+  padding: 1.5em 1.75em 2em 1.75em;
+  background: $clr-primary-400;
+  border-radius: 0.8em;
+
+  @media (width >= $bp-tablet-sm) {
+    padding: 3.5em 1.75em 2em 1.75em;
+  }
+}
+
+.check-out__title {
+  font-size: $fs-700;
+  font-weight: $fw-800;
+  line-height: $lh-700;
+  color: $clr-neutral-100;
+}
+
+.card {
+  padding: 3.5em 1.75em 2em 1.75em;
+  border-radius: 0.8em;
+  background-color: $clr-neutral-100;
+  position: relative;
+  flex-direction: column;
+}
+
+.card__img {
+  position: absolute;
+  top: -10%;
+}
+
+.card__title {
+  font-size: $fs-500;
+  font-weight: $fw-800;
+  line-height: $lh-500;
+  color: $clr-primary-800;
+  margin-block-end: 1em;
+}
+
+.card__description {
+  margin-block-end: 1.5em;
+}
+
+.card__btn {
+  color: $clr-neutral-500;
+  font-weight: $fw-700;
+  font-size: $fs-card-btn;
+  line-height: $lh-card-btn;
+  transition: opacity 0.4s ease-out;
+}
