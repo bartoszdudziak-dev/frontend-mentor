@@ -5,7 +5,7 @@
 }
 
 body,
-h2,
+h1,
 p,
 button,
 ul {
@@ -163,7 +163,7 @@ body {
 .hidden {
   opacity: 0;
   visibility: hidden;
-  transition: all 0.75s;
+  transition: all 0.5s;
 }
 
 .visible {
