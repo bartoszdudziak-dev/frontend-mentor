@@ -1,0 +1,33 @@
+$clr-primary-700: hsl(217, 19%, 35%);
+$clr-neutral-100: #ffffff;
+$clr-neutral-200: hsl(210, 46%, 95%);
+$clr-neutral-300: hsl(212, 23%, 69%);
+$clr-neutral-400: hsl(214, 17%, 51%);
+
+$bp-desktop: 1024px;
+$br-card: 1rem;
+
+$fs-300: 0.813rem;
+$lh-300: 1.25rem;
+$fs-600: clamp(1rem, 0.376vw + 0.912rem, 1.25rem);
+$lh-600: clamp(1.5rem, 0.376vw + 1.412rem, 1.75rem);
+
+$fw-500: 500;
+$fw-700: 700;
+
+@font-face {
+  font-family: 'Manrope';
+  font-weight: $fw-500;
+  src: local('Manrope'),
+    url('../assets/fonts/Manrope-Medium.woff2') format('woff2'),
+    url('../assets/fonts/Manrope-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-weight: $fw-700;
+  src: local('Manrope'),
+    url('../assets/fonts/Manrope-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Manrope-Bold.woff') format('woff');
+}
+
+$ff-primary: 'Manrope', sans-serif;
