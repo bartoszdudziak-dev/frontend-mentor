@@ -109,7 +109,7 @@ body {
   gap: 1.5rem;
   color: hsl(234, 29%, 20%);
 }
-.newsletter__info h2 {
+.newsletter__info h1 {
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1;
@@ -199,7 +199,7 @@ body {
     width: min(100%, 376px);
     padding: 0;
   }
-  .newsletter__content h2 {
+  .newsletter__content h1 {
     font-size: 3.5rem;
   }
   .success {
