@@ -1,0 +1,225 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+input,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+label {
+  display: block;
+}
+
+input {
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+input:focus {
+  outline: none;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: local("Roboto"), url("../assets/fonts/Roboto-Regular.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 700;
+  src: local("Roboto"), url("../assets/fonts/Roboto-Bold.ttf") format("ttf");
+}
+body {
+  display: grid;
+  min-height: 100dvh;
+  place-content: center;
+  background-color: hsl(235, 18%, 26%);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.wrapper {
+  width: min(100%, 375px);
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn {
+  width: 100%;
+  white-space: nowrap;
+  background-color: hsl(234, 29%, 20%);
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  border-radius: 0.5rem;
+  padding-block: 1.125rem 0.875rem;
+  cursor: pointer;
+}
+
+.newsletter {
+  background-color: hsl(0, 0%, 100%);
+}
+
+.newsletter__content {
+  padding: 2.5rem 1.5rem;
+  gap: 2.5rem;
+}
+
+.newsletter__info {
+  gap: 1.5rem;
+  color: hsl(234, 29%, 20%);
+}
+.newsletter__info h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.newsletter__info li {
+  background: url("../assets/images/icon-list.svg");
+  background-repeat: no-repeat;
+  background-position: left top 10%;
+  padding-inline-start: 2rem;
+}
+.newsletter__info li:not(:last-child) {
+  margin-block-end: 0.625rem;
+}
+
+.newsletter__form {
+  gap: 1.5rem;
+}
+
+.input-group .flex-row {
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-block-end: 0.5rem;
+}
+.input-group .error-message {
+  color: hsl(4, 100%, 67%);
+  display: none;
+}
+.input-group input {
+  width: 100%;
+  padding: 0.9375rem 0 0.9375rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(231, 7%, 60%);
+  cursor: pointer;
+}
+.input-group input:focus {
+  outline: 2px solid hsl(234, 29%, 20%);
+  border-color: transparent;
+}
+
+.input-group--error .error-message {
+  display: inline-flex;
+}
+.input-group--error input {
+  border-color: hsl(4, 100%, 67%);
+  color: hsl(4, 100%, 67%);
+  background-color: rgba(255, 97, 85, 0.15);
+}
+
+.success {
+  background-color: hsl(0, 0%, 100%);
+  padding: 9.375rem 1.5rem 2.5rem 1.5rem;
+}
+
+.success__content {
+  background: url("../assets/images/icon-success.svg");
+  background-repeat: no-repeat;
+  background-position: top left;
+  margin-block-end: 16.5rem;
+  color: hsl(234, 29%, 20%);
+}
+
+.success__title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding-block: 6.5rem 1.5rem;
+}
+
+.success__email {
+  font-weight: 700;
+}
+
+@media screen and (width >= 1024px) {
+  .wrapper {
+    width: min(100%, 928px);
+  }
+  .newsletter {
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 1.5rem 1.5rem 1.5rem 4rem;
+    gap: 4rem;
+    border-radius: 2.25rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  }
+  .newsletter__content {
+    width: min(100%, 376px);
+    padding: 0;
+  }
+  .newsletter__content h2 {
+    font-size: 3.5rem;
+  }
+  .success {
+    padding: 3rem 4rem 4rem 4rem;
+    border-radius: 2.25rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  }
+  .success.wrapper {
+    width: min(100%, 504px);
+  }
+  .success__content {
+    margin-block-end: 2.5rem;
+  }
+  .success h2 {
+    font-size: 3.5rem;
+  }
+}
+@media (hover: hover) {
+  .btn:hover, .btn:focus {
+    background: linear-gradient(180deg, #ff6a3a, #ff527b);
+    box-shadow: 0 5px 10px rgba(255, 98, 87, 0.85);
+  }
+}/*# sourceMappingURL=main.css.map */

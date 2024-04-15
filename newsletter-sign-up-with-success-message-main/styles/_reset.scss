@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+input,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+label {
+  display: block;
+}
+
+input {
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+input:focus {
+  outline: none;
+}

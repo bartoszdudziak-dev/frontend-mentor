@@ -1,0 +1,46 @@
+// COLORS
+// Primary
+$clr-primary-400: hsl(4, 100%, 67%);
+
+// Neutral
+$clr-neutral-100: hsl(0, 0%, 100%);
+$clr-neutral-400: hsl(231, 7%, 60%);
+$clr-neutral-700: hsl(235, 18%, 26%);
+$clr-neutral-900: hsl(234, 29%, 20%);
+
+// TYPOGRAPHY
+// Font size
+$fs-300: 0.75rem;
+$fs-400: 1rem;
+$fs-600: 2.5rem;
+$fs-700: 3.5rem;
+
+// Font weight
+$fw-400: 400;
+$fw-700: 700;
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: $fw-400;
+  src: local('Roboto'), url('../assets/fonts/Roboto-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: $fw-700;
+  src: local('Roboto'), url('../assets/fonts/Roboto-Bold.ttf') format('ttf');
+}
+
+// Font family
+$ff-primary: 'Roboto', sans-serif;
+
+// OTHER
+// Breakpoint
+$bp: 1024px;
+
+// Border radius
+$br-input: 0.5rem;
+$br-newsletter: 2.25rem;
+
+// Box shadow
+$bs-newsletter: 0 10px 20px rgba(0, 0, 0, 0.25);
