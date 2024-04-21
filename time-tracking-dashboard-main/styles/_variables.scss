@@ -1,0 +1,55 @@
+// COLORS
+$clr-primary-400: hsl(246, 80%, 60%);
+
+$clr-primary-work: hsl(15, 100%, 70%);
+$clr-primary-play: hsl(195, 74%, 62%);
+$clr-primary-study: hsl(348, 100%, 68%);
+$clr-primary-exercise: hsl(145, 58%, 55%);
+$clr-primary-social: hsl(264, 64%, 52%);
+$clr-primary-selfcare: hsl(43, 84%, 65%);
+
+$clr-neutral-900: hsl(226, 43%, 10%);
+$clr-neutral-700: hsl(235, 46%, 20%);
+$clr-neutral-500: hsl(236, 41%, 34%);
+$clr-neutral-400: hsl(235, 45%, 61%);
+$clr-neutral-300: hsl(236, 100%, 87%);
+$clr-neutral-100: hsl(0, 0%, 100%);
+
+// TYPOGRAPHY
+$fw-300: 300;
+$fw-400: 400;
+$fw-500: 500;
+
+$fs-300: 0.9375rem;
+$fs-400: 1.125rem;
+$fs-600: clamp(1.5rem, 1.502vw + 1.148rem, 2.5rem);
+$fs-700: clamp(2rem, 2.254vw + 1.472rem, 3.5rem);
+
+@font-face {
+  font-family: 'Rubik';
+  font-weight: $fw-300;
+  src: local('Rubik'), url('../assets/fonts/Rubik-Light.woff2') format('woff2'),
+    url('../assets/fonts/Rubik-Light.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: $fw-400;
+  src: local('Rubik'),
+    url('../assets/fonts/Rubik-Regular.woff2') format('woff2'),
+    url('../assets/fonts/Rubik-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: $fw-500;
+  src: local('Rubik'), url('../assets/fonts/Rubik-Medium.woff2') format('woff2'),
+    url('../assets/fonts/Rubik-Medium.woff.woff') format('woff');
+}
+
+$ff-primary: 'Rubik', sans-serif;
+
+// Border
+$br-card: 0.9375rem;
+
+// Breakpoints
+$bp-mobile: 750px;
+$bp-desktop: 1024px;

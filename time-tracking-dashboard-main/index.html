@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script src="./scripts/main.js" type="module"></script>
+    <title>Frontend Mentor | Time tracking dashboard</title>
+  </head>
+  <body>
+    <main>
+      <section class="dashboard wrapper grid">
+        <div class="user grid">
+          <div class="user__content flex">
+            <img
+              class="user__img"
+              src="./assets/images/image-jeremy.png"
+              alt="User picture profile"
+            />
+            <div class="user__info">
+              <span>Report for</span>
+              <p class="user__name">Jeremy Robson</p>
+            </div>
+          </div>
+          <div class="user__stats flex">
+            <div><button data-timeframe="daily" class="btn">Daily</button></div>
+            <div>
+              <button data-timeframe="weekly" class="btn btn--active">
+                Weekly
+              </button>
+            </div>
+            <div>
+              <button data-timeframe="monthly" class="btn">Monthly</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
