@@ -21,7 +21,7 @@ const renderData = function (timeframe) {
       <div class="card__content">
         <div class="card__header flex">
           <h2 class="card__category">${el.title}</h2>
-          <button class="card__more">
+          <a class="card__more">
             <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
@@ -29,7 +29,7 @@ const renderData = function (timeframe) {
                 fill-rule="evenodd"
               />
             </svg>
-          </button>
+          </a>
         </div>
         <div class="card__info flex">
           ${generateTimeFrameMarkup(timeframe, i)}

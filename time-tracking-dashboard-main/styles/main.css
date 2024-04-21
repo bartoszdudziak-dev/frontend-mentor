@@ -104,6 +104,11 @@ body {
   font-size: 0.9375rem;
   color: hsl(236, 100%, 87%);
 }
+.card__more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .card__header.flex,
 .card__info.flex {

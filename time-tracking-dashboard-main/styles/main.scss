@@ -67,6 +67,12 @@ body {
     font-size: $fs-300;
     color: $clr-neutral-300;
   }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .card__header.flex,
