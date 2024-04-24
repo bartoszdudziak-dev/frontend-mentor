@@ -1,0 +1,32 @@
+$clr-primary-400: hsl(172, 67%, 45%);
+$clr-neutral-700: hsl(183, 100%, 15%);
+$clr-neutral-600: hsl(186, 14%, 43%);
+$clr-neutral-500: hsl(184, 14%, 56%);
+$clr-neutral-400: hsl(185, 41%, 84%);
+$clr-neutral-300: hsl(189, 41%, 97%);
+$clr-neutral-100: hsl(0, 0%, 100%);
+$clr-error: #e17457;
+$clr-success: #26c2ae;
+$clr-hover: #9fe8df;
+
+$fs-700: clamp(2rem, 2.465vw + 1.422rem, 3rem);
+$fs-500: 2rem;
+$fs-400: 1.5rem;
+$fs-300: 1.25rem;
+$fs-200: 1rem;
+$fs-100: 0.8125rem;
+
+$fw-400: 700;
+
+@font-face {
+  font-family: 'Space Mono';
+  font-weight: $fw-400;
+  src: local('Space Mono'),
+    url('../assets/fonts/SpaceMono-Bold.woff2') format('woff2'),
+    url('../assets/fonts/SpaceMono-Bold.woff') format('woff');
+}
+
+$ff-400: 'Space Mono', sans-serif;
+
+$br-300: 0.4rem;
+$br-400: 0.9rem;
