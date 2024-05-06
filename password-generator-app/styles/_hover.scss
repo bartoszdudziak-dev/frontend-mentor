@@ -1,0 +1,32 @@
+@media (hover: hover) {
+  input[type='range']::-webkit-slider-thumb:hover {
+    border: 2px solid $clr-strength-green;
+    background: $clr-bg-secondary;
+  }
+
+  input[type='range']::-moz-range-thumb:hover {
+    border: 2px solid $clr-strength-green;
+    background: $clr-bg-secondary;
+  }
+
+  .copy__btn:hover {
+    svg path {
+      fill: $clr-text-primary;
+    }
+  }
+
+  .input-group label:hover input[type='checkbox'],
+  input[type='checkbox']:hover {
+    border-color: $clr-strength-green;
+  }
+
+  .generate-btn:hover {
+    background-color: transparent;
+    color: $clr-strength-green;
+    border-color: $clr-strength-green;
+
+    svg path {
+      fill: $clr-strength-green;
+    }
+  }
+}

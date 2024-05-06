@@ -1,0 +1,25 @@
+// Colors
+$clr-bg-primary: #24232c;
+$clr-bg-secondary: #18171f;
+$clr-text-primary: #e6e5ea;
+$clr-text-secondary: #817d92;
+$clr-strength-red: #f64a4a;
+$clr-strength-orange: #fb7c58;
+$clr-strength-yellow: #f8cd65;
+$clr-strength-green: #a4ffaf;
+
+// Font
+$fs-700: 2rem;
+$fs-600: 1.5rem;
+$fs-400: clamp(1rem, 0.509vw + 0.881rem, 1.125rem);
+$fw-400: 700;
+$lh-400: 1.3;
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: $fw-400;
+  src: local('JetBrains Mono'),
+    url('../assets/fonts/static/JetBrainsMono-Bold.ttf');
+}
+
+$ff-primary: 'JetBrains Mono', sans-serif;

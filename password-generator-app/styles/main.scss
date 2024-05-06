@@ -1,0 +1,175 @@
+@import 'reset', 'variables', 'mixins', 'slider', 'checkbox', 'hover';
+
+body {
+  background-color: $clr-bg-secondary;
+  color: $clr-text-primary;
+  font-family: $ff-primary;
+  font-weight: $fw-400;
+  font-size: $fs-400;
+  line-height: $lh-400;
+
+  // Center app on page
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+}
+
+main {
+  width: 100%;
+}
+
+.app {
+  width: min(90%, 540px);
+  margin-inline: auto;
+}
+
+.app__title {
+  color: $clr-text-secondary;
+  font-size: $fs-400;
+  text-align: center;
+  margin-block-end: 1em;
+}
+
+.app__content {
+  display: grid;
+  gap: 1em;
+}
+
+.app__content-row {
+  background-color: $clr-bg-primary;
+}
+
+.wrapper {
+  max-width: 90%;
+  margin-inline: auto;
+  padding-block: 1em;
+}
+
+.password-wrapper {
+  @include flex(row, 0, space-between, center);
+}
+
+.password {
+  font-size: $fs-600;
+  opacity: 0.25;
+
+  &--active {
+    opacity: 1 !important;
+  }
+}
+
+.copy-wrapper {
+  @include flex(row, 1rem, center, center);
+}
+
+.copy__message {
+  text-transform: uppercase;
+  color: $clr-strength-green;
+}
+
+.copy__btn {
+  svg path {
+    @include transitionBasic;
+  }
+}
+
+.slider {
+  @include flex(column, 0.5em);
+  margin-block-end: 2em;
+
+  &__info {
+    @include flex(row, 0, space-between, center);
+  }
+
+  &__value {
+    font-size: $fs-600;
+    color: $clr-strength-green;
+  }
+}
+
+.checkboxes-wrapper {
+  @include flex(column, 1em);
+  margin-block-end: 2em;
+}
+
+.input-group {
+  @include flex(row, 1em, flex-start, center);
+
+  label {
+    cursor: pointer;
+  }
+}
+
+.strength {
+  @include flex(row, 0, space-between, center);
+  background-color: $clr-bg-secondary;
+  padding: 1em;
+  margin-block-end: 1em;
+  text-transform: uppercase;
+
+  > p {
+    color: $clr-text-secondary;
+  }
+
+  &__info {
+    font-size: 1.125em;
+    opacity: 0;
+  }
+
+  &__indicators {
+    @include flex(row, 1em, flex-start, center);
+  }
+
+  &__indicators-wrapper {
+    @include flex(row, 0.5em);
+  }
+
+  &__indicator {
+    width: 10px;
+    height: 28px;
+    border: 2px solid $clr-text-primary;
+  }
+}
+
+.generate-btn {
+  @include flex(row, 1em, center, center);
+  @include transitionBasic;
+  background-color: $clr-strength-green;
+  color: $clr-bg-primary;
+  text-transform: uppercase;
+  width: 100%;
+  padding-block: 1.125em;
+  border: 2px solid transparent;
+}
+
+@media screen and (width >= 768px) {
+  .app__title {
+    font-size: $fs-600;
+  }
+  .password {
+    font-size: $fs-700;
+  }
+  .strength__info {
+    font-size: $fs-600;
+  }
+}
+
+.too-weak {
+  background-color: $clr-strength-red;
+  border-color: $clr-strength-red;
+}
+
+.weak {
+  background-color: $clr-strength-orange;
+  border-color: $clr-strength-orange;
+}
+
+.medium {
+  background-color: $clr-strength-yellow;
+  border-color: $clr-strength-yellow;
+}
+
+.strong {
+  background-color: $clr-strength-green;
+  border-color: $clr-strength-green;
+}

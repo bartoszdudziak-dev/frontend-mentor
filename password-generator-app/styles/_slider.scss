@@ -1,0 +1,44 @@
+input[type='range'] {
+  appearance: none;
+  background-color: transparent;
+  width: 100%;
+  background: $clr-bg-secondary;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  appearance: none;
+  height: 8px;
+}
+
+input[type='range']::-moz-range-track {
+  appearance: none;
+  height: 8px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  @include transitionBasic;
+  appearance: none;
+  position: relative;
+  background: $clr-text-primary;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input[type='range']::-moz-range-thumb {
+  @include transitionBasic;
+  appearance: none;
+  position: relative;
+  background: $clr-text-primary;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input[type='range']:active {
+  cursor: grabbing;
+}
