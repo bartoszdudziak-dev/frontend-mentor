@@ -1,0 +1,46 @@
+progress[value] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 1rem;
+  border-radius: 1rem;
+  background: var(--color-secondary-bg);
+  position: relative;
+  box-shadow: $box-shadow-darkmode;
+}
+
+progress[value]::-webkit-progress-bar {
+  border-radius: 1rem;
+  background: var(--color-secondary-bg);
+
+  position: absolute;
+  width: calc(100% - 0.5rem);
+  height: 50%;
+  left: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 1rem;
+  background: $clr-element;
+}
+
+progress[value]::-moz-progress-bar {
+  border-radius: 1rem;
+  background: $clr-element;
+  position: absolute;
+  width: calc(100% - 0.5rem);
+  height: 50%;
+  left: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}

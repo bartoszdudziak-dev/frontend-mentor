@@ -1,0 +1,91 @@
+// Colors
+$clr-primary-bg-lightmode: #f4f6fa;
+$clr-secondary-bg-lightmode: #ffffff;
+
+$clr-primary-bg-darkmode: #313e51;
+$clr-secondary-bg-darkmode: #3b4d66;
+
+$clr-text-lightmode: #313e51;
+$clr-text-darkmode: #ffffff;
+
+$clr-accent-lightmode: #626c7f;
+$clr-accent-darkmode: #abc1e1;
+
+$clr-element: #a729f5;
+$clr-success: #26d782;
+$clr-error: #ee5454;
+
+$clr-html: #fff1e9;
+$clr-css: #e0fdef;
+$clr-javascript: #ebf0ff;
+$clr-accessibility: #f6e7ff;
+
+$clr-bar-hover: #f6e7ff;
+$clr-button-hover: #e1b0fd;
+
+$clr-shadow-lightmode: #8fa0c1;
+$clr-shadow-darkmode: #000000;
+
+// Typography
+$fs-800: clamp(5.5rem, 14.249vw + 2.16rem, 9rem); //88px - 144px
+$fs-600: clamp(2.5rem, 6.107vw + 1.069rem, 4rem); //40px - 64px
+$fs-400: clamp(1.25rem, 4.071vw + 0.296rem, 2.25rem); //20px - 36px
+$fs-300: clamp(1.125rem, 2.545vw + 0.529rem, 1.75rem); //18px - 28px
+$fs-200: clamp(1.125rem, 1.527vw + 0.767rem, 1.5rem); //18px - 24px
+$fs-100: clamp(0.875rem, 1.527vw + 0.517rem, 1.25rem); //14px - 20px
+
+$fw-400: 400;
+$fw-500: 500;
+
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 400;
+  src: local('Rubik'),
+    url('../assets/fonts/Rubik-Regular.woff2') format('woff2'),
+    url('../assets/fonts/Rubik-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 500;
+  src: local('Rubik'), url('../assets/fonts/Rubik-Medium.woff2') format('woff2'),
+    url('../assets/fonts/Rubik-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  src: local('Rubik'), url('../assets/fonts/Rubik-Italic.woff2') format('woff2'),
+    url('../assets/fonts/Rubik-Italic.woff') format('woff');
+}
+
+$ff-primary: 'Rubik', sans-serif;
+
+// Breakpoints
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+// Border radius
+$br-sm: 0.375rem;
+$br-md: 0.75rem;
+$br-lg: 1.5rem;
+
+// Box shadow
+$box-shadow-lightmode: 0 16px 40px
+  rgba(
+    $color: $clr-shadow-lightmode,
+    $alpha: 0.14,
+  );
+
+$box-shadow-darkmode: 0 4px 4px
+  rgba(
+    $color: $clr-shadow-darkmode,
+    $alpha: 0.25,
+  );
+
+// Background URL
+$bg-mobile-light: '../assets/images/pattern-background-mobile-light.svg';
+$bg-tablet-light: '../assets/images/pattern-background-tablet-light.svg';
+$bg-desktop-light: '../assets/images/pattern-background-desktop-light.svg';
+
+$bg-mobile-dark: '../assets/images/pattern-background-mobile-dark.svg';
+$bg-tablet-dark: '../assets/images/pattern-background-tablet-dark.svg';
+$bg-desktop-dark: '../assets/images/pattern-background-desktop-dark.svg';

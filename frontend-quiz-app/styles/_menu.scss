@@ -1,0 +1,71 @@
+.menu {
+  @include flex(column, 2.5rem);
+
+  &__info {
+    @include flex(column, 1rem);
+  }
+
+  &__title {
+    font-size: $fs-600;
+    font-weight: $fw-400;
+    max-width: 12ch;
+
+    span {
+      font-weight: $fw-500;
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-100;
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  &__subjects {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  &__subject {
+    @include flex(row, 1rem, flex-start, center);
+    padding: 0.75rem;
+    background-color: var(--color-secondary-bg);
+    border-radius: var(--border-radius-bar);
+    box-shadow: var(--box-shadow);
+  }
+}
+
+@media screen and (width >= $bp-tablet) {
+  .menu {
+    gap: 4rem;
+
+    &__subjects {
+      gap: 1.5rem;
+    }
+    &__subject {
+      padding: 1.25rem;
+      gap: 2rem;
+    }
+  }
+}
+
+@media screen and (width >= $bp-desktop) {
+  .menu {
+    @include flex(row, 0, space-between);
+
+    &__info {
+      gap: 3rem;
+    }
+
+    &__subjects {
+      width: 45%;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .menu__subject:hover,
+  .menu__subject:focus {
+    outline: 0.2rem solid $clr-element;
+  }
+}

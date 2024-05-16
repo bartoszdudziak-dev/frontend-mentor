@@ -1,0 +1,50 @@
+.toggle-wrapper {
+  @include flex(row, 0.5rem);
+}
+
+.toggle {
+  position: relative;
+  background: $clr-element;
+  width: 2rem;
+  height: 1.25rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.toggle::before {
+  content: '';
+  position: absolute;
+  background: $clr-text-darkmode;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  left: 10%;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: transform 0.25s linear, left 0.25s linear;
+}
+
+#theme:checked + .toggle::before {
+  transform: translate(2rem - 0.75rem, -50%);
+  left: -10%;
+}
+
+#theme {
+  display: none;
+}
+
+@media screen and (width >= $bp-tablet) {
+  .toggle {
+    width: 3rem;
+    height: 1.75rem;
+  }
+
+  .toggle::before {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  #theme:checked + .toggle::before {
+    transform: translate(3rem - 1.25rem, -50%);
+  }
+}

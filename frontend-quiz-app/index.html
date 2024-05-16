@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script src="./scripts/main.js" type="module"></script>
+    <title>Frontend Mentor | Frontend quiz app</title>
+  </head>
+  <body class="background">
+    <div class="app">
+      <header class="header">
+        <div class="header__left subject-info visually-hidden">
+          <img class="subject-icon" src="" alt="Subject icon" />
+          <p class="subject-name"></p>
+        </div>
+        <div class="header__right">
+          <img
+            class="theme-icon sun-icon"
+            src="./assets/images/icon-sun-dark.svg"
+            alt="Light mode"
+          />
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="theme" />
+            <label for="theme" class="toggle"></label>
+          </div>
+          <img
+            class="theme-icon moon-icon"
+            src="./assets/images/icon-moon-dark.svg"
+            alt="Dark mode"
+          />
+        </div>
+      </header>
+      <main class="">
+        <section class="menu hidden">
+          <div class="menu__info">
+            <h1 class="menu__title">
+              Welcome to the <span>Frontend Quiz!</span>
+            </h1>
+            <p class="menu__subtitle">Pick a subject to get started.</p>
+          </div>
+          <div class="menu__subjects">
+            <!-- <button class="menu__subject">
+              <img
+                class="subject-icon html"
+                src="../assets/images/icon-html.svg"
+                alt="Subject icon"
+              />
+              <p class="subject-name">HTML</p>
+            </button>
+            <button class="menu__subject">
+              <img
+                class="subject-icon css"
+                src="../assets/images/icon-css.svg"
+                alt="Subject icon"
+              />
+              <p class="subject-name">CSS</p>
+            </button>
+            <button class="menu__subject">
+              <img
+                class="subject-icon javascript"
+                src="../assets/images/icon-js.svg"
+                alt="Subject icon"
+              />
+              <p class="subject-name">JavaScript</p>
+            </button>
+            <button class="menu__subject">
+              <img
+                class="subject-icon accessibility"
+                src="../assets/images/icon-accessibility.svg"
+                alt="Subject icon"
+              />
+              <p class="subject-name">Accessibility</p>
+            </button> -->
+          </div>
+        </section>
+        <section class="quiz hidden" data-subject="" data-question="">
+          <div class="question">
+            <p class="question__counter">
+              Question <span class="question__current"></span> of
+              <span class="question__last"></span>
+            </p>
+            <p class="question__title"></p>
+            <progress
+              class="question__progress"
+              id="progress"
+              value="2"
+              max=""
+            ></progress>
+          </div>
+          <div class="answer">
+            <!-- <button class="answer__item">
+              <span class="answer__choice">A</span>
+              <p class="answer__content">4.5 : 1</p>
+              <img src="" alt="" class="answer__icon" />
+            </button>
+            <button class="answer__item">
+              <span class="answer__choice">B</span>
+              <p class="answer__content">3 : 1</p>
+              <img src="" alt="" class="answer__icon" />
+            </button>
+            <button class="answer__item">
+              <span class="answer__choice">C</span>
+              <p class="answer__content">2.5 : 1</p>
+              <img src="" alt="" class="answer__icon" />
+            </button>
+            <button class="answer__item">
+              <span class="answer__choice">D</span>
+              <p class="answer__content">5 : 1</p>
+              <img src="" alt="" class="answer__icon" />
+            </button> -->
+            <!-- <button class="answer__submit btn">Submit Answer</button> -->
+          </div>
+        </section>
+        <section class="result hidden">
+          <h2 class="result__title">
+            Quiz completed <span>You scored...</span>
+          </h2>
+          <div class="result__wrapper">
+            <div class="result__content">
+              <div class="result__subject">
+                <img src="" alt="Subject icon" class="subject-icon" />
+                <p class="subject-name"></p>
+              </div>
+              <div class="result__info">
+                <span class="result__score"></span>
+                <p class="result__description">
+                  out of <span class="result__score-max"></span>
+                </p>
+              </div>
+            </div>
+            <button class="result__submit btn" id="play">Play again</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

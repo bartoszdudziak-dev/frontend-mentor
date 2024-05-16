@@ -1,0 +1,38 @@
+.header {
+  @include flex(row, 0, space-between, center);
+  padding-block: 1rem;
+
+  &__left {
+    @include flex(row, 1rem, center, center);
+  }
+
+  &__right {
+    @include flex(row, 0.5rem, center, center);
+  }
+}
+
+.theme-icon {
+  max-width: 1rem;
+  max-height: 1rem;
+}
+
+@media screen and (width >= $bp-tablet) {
+  .header {
+    padding-block: 2.75rem;
+
+    &__right {
+      gap: 1rem;
+    }
+  }
+
+  .theme-icon {
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+  }
+}
+
+@media screen and (width >= $bp-desktop) {
+  .header {
+    padding-block: 5rem;
+  }
+}

@@ -1,0 +1,78 @@
+.result {
+  @include flex(column, 2.5rem);
+
+  &__title {
+    font-size: $fs-600;
+    font-weight: $fw-400;
+    max-width: 12ch;
+
+    span {
+      font-weight: $fw-500;
+    }
+  }
+
+  &__wrapper {
+    @include flex(column, 0.75rem);
+  }
+
+  &__content {
+    @include flex(column, 1rem, center, center);
+    padding: 2rem;
+    background: var(--color-secondary-bg);
+    border-radius: var(--border-radius-bar);
+    box-shadow: var(--box-shadow);
+  }
+
+  &__subject {
+    @include flex(row, 1rem, center, center);
+  }
+
+  &__info {
+    @include flex(column, 1rem, center, center);
+  }
+
+  &__score {
+    font-size: $fs-800;
+    font-weight: $fw-500;
+  }
+
+  &__description {
+    font-size: $fs-200;
+    color: var(--color-accent);
+  }
+}
+
+@media screen and (width >= $bp-tablet) {
+  .result {
+    &__title {
+      gap: 4rem;
+    }
+
+    &__wrapper {
+      gap: 2rem;
+    }
+
+    &__subject {
+      gap: 1.5rem;
+    }
+
+    &__content {
+      padding: 3rem;
+      gap: 2.5rem;
+    }
+  }
+}
+
+@media screen and (width >= $bp-desktop) {
+  .result {
+    @include flex(row, 0, space-between);
+
+    &__title {
+      width: 45%;
+    }
+
+    &__wrapper {
+      width: 50%;
+    }
+  }
+}

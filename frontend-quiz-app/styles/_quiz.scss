@@ -1,0 +1,175 @@
+.quiz {
+  @include flex(column, 2.5rem);
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+.question {
+  &__counter {
+    font-size: $fs-100;
+    color: var(--color-accent);
+    font-style: italic;
+  }
+
+  &__title {
+    font-size: $fs-400;
+    font-weight: $fw-500;
+    margin-block-start: 0.75rem;
+    line-height: 1.2;
+  }
+
+  &__progress {
+    margin-block-start: 1.5rem;
+  }
+}
+
+.answer {
+  @include flex(column, 0.75rem);
+  padding-block-end: 1rem;
+  position: relative;
+
+  &__item {
+    @include flex(row, 1rem, flex-start, center);
+    padding: 0.75rem;
+    background: var(--color-secondary-bg);
+    border-radius: var(--border-radius-bar);
+    font-size: $fs-300;
+    box-shadow: var(--box-shadow);
+    position: relative;
+  }
+
+  &__choice {
+    @include flex(row, 0, center, center);
+    font-weight: $fw-500;
+    border-radius: var(--border-radius-tiles);
+    color: $clr-accent-lightmode;
+    background: $clr-primary-bg-lightmode;
+    min-width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &__content {
+    font-weight: $fw-500;
+    text-align: left;
+    line-height: 1.2;
+    padding-inline-end: 10%;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 3%;
+  }
+}
+
+.error-message {
+  @include flex(row, 0.5em, center, center);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+
+  p {
+    font-size: $fs-300;
+    color: $clr-error;
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.correct {
+  outline: 0.2rem solid $clr-success;
+
+  .answer__choice {
+    background: $clr-success;
+    color: $clr-text-darkmode;
+  }
+}
+
+.incorrect {
+  outline: 0.2rem solid $clr-error;
+
+  .answer__choice {
+    background: $clr-error;
+    color: $clr-text-darkmode;
+  }
+}
+
+@media screen and (width >= $bp-tablet) {
+  .quiz {
+    gap: 4rem;
+  }
+
+  .question {
+    &__title {
+      margin-block-start: 1.5rem;
+    }
+
+    &__progress {
+      margin-block-start: 2.5rem;
+    }
+  }
+
+  .answer {
+    gap: 1.5rem;
+    padding-block-end: 2rem;
+
+    &__item {
+      gap: 2rem;
+    }
+
+    &__choice {
+      min-width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+}
+
+.error-message svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.answer--active {
+  outline: 0.2rem solid $clr-element;
+
+  .answer__choice {
+    background: $clr-element;
+    color: $clr-text-darkmode;
+  }
+}
+
+@media screen and (width >= $bp-desktop) {
+  .quiz {
+    @include flex(row, 0, space-between);
+  }
+
+  .question {
+    width: 40%;
+
+    &__progress {
+      margin-block-start: 10rem;
+    }
+  }
+
+  .answer {
+    width: 50%;
+
+    &__item {
+      padding: 1.125rem;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .answer__item:not(.answer--active):hover,
+  .answer__item:not(.answer--active):focus {
+    outline: none;
+    .answer__choice {
+      color: $clr-element;
+      background-color: $clr-bar-hover;
+    }
+  }
+}
