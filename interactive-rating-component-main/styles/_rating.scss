@@ -1,0 +1,94 @@
+.rating {
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+
+  &__icon {
+    @include flex(row, 0, center, center);
+    background-color: $clr-neutral-700;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-block-end: 1rem;
+  }
+
+  &__title {
+    color: $clr-neutral-100;
+    font-size: $fs-600;
+    font-weight: $fw-700;
+    margin-block-end: 1rem;
+  }
+
+  &__description {
+    color: $clr-neutral-400;
+    font-size: $fs-400;
+    font-weight: $fw-400;
+    margin-block-end: 1.5rem;
+  }
+
+  &__options {
+    @include flex(row, 0, space-between);
+    margin-block-end: 1.5rem;
+  }
+
+  &__option-btn {
+    @include flex(row, 0, center, center);
+    color: $clr-neutral-400;
+    font-size: $fs-500;
+    font-weight: $fw-700;
+    background-color: $clr-neutral-700;
+    width: 2.625rem;
+    height: 2.625rem;
+    border-radius: 50%;
+    transition: color 0.3s, background-color 0.25s ease-in-out;
+
+    &--active {
+      color: $clr-neutral-700;
+      background-color: $clr-primary-400;
+    }
+  }
+
+  &__submit-btn {
+    color: $clr-neutral-900;
+    font-size: $fs-500;
+    font-weight: $fw-700;
+    background-color: $clr-primary-400;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    width: 100%;
+    padding-block: 0.875rem;
+    border-radius: 2rem;
+    transition: color 0.3s, background-color 0.25s ease-in-out;
+  }
+}
+
+@media (hover: hover) {
+  .rating {
+    &__option-btn:hover {
+      color: $clr-neutral-700;
+      background-color: $clr-neutral-100;
+    }
+    &__submit-btn:hover {
+      background-color: $clr-neutral-100;
+    }
+  }
+}
+
+@media screen and (width >= $bp-md) {
+  .rating {
+    padding: 2rem;
+
+    &__icon {
+      margin-block-end: 1.875rem;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &__options {
+      margin-block-end: 2rem;
+    }
+
+    &__option-btn {
+      width: 3.125rem;
+      height: 3.125rem;
+    }
+  }
+}

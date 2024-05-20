@@ -1,0 +1,37 @@
+// Colors
+$clr-primary-400: hsl(25, 97%, 53%);
+$clr-neutral-100: hsl(0, 0%, 100%);
+$clr-neutral-400: hsl(217, 12%, 63%);
+$clr-neutral-700: hsl(213, 19%, 18%);
+$clr-neutral-800: #181e27;
+$clr-neutral-900: hsl(216, 12%, 8%);
+
+// Font
+@font-face {
+  font-family: 'Overpass';
+  src: url('../assets/fonts/Overpass-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Overpass';
+  src: url('../assets/fonts/Overpass-Italic-VariableFont_wght.ttf')
+    format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+$ff-primary: 'Overpass', sans-serif;
+$fw-400: 400;
+$fw-700: 700;
+$fs-400: clamp(0.875rem, 0.254vw + 0.815rem, 0.9375rem);
+$fs-500: clamp(0.875rem, 0.509vw + 0.756rem, 1rem);
+$fs-600: clamp(1.5rem, 1.018vw + 1.261rem, 1.75rem);
+
+// Breakpoint
+$bp-md: 768px;
+
+// Border radius
+$br-sm: 0.9375rem;
+$br-md: 1.875rem;

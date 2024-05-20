@@ -1,0 +1,35 @@
+@import 'reset', 'variables', 'mixins', 'rating', 'feedback';
+
+body {
+  font-family: $ff-primary;
+  background-color: $clr-neutral-900;
+  line-height: 1.5;
+  font-weight: $fw-400;
+  color: $clr-neutral-100;
+}
+
+main {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.component {
+  background: linear-gradient(to bottom, $clr-neutral-700, $clr-neutral-800);
+  border-radius: $br-sm;
+}
+
+.wrapper {
+  width: min(87.2%, 412px);
+  margin-inline: auto;
+}
+
+@media screen and (width >= $bp-md) {
+  .component {
+    border-radius: $br-md;
+  }
+}
