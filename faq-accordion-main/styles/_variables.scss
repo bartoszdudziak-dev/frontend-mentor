@@ -1,0 +1,26 @@
+// Colors
+$clr-white: hsl(0, 0%, 100%);
+$clr-light-pink: hsl(275, 100%, 97%);
+$clr-pink: #ad28eb;
+$clr-grayish-purple: hsl(292, 16%, 49%);
+$clr-dark-purple: hsl(292, 42%, 14%);
+
+// Font
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../assets/fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+$ff-primary: 'Work Sans', sans-serif;
+$fw-400: 400;
+$fw-600: 600;
+$fw-700: 700;
+$fs-400: clamp(0.875rem, 0.509vw + 0.756rem, 1rem);
+$fs-500: clamp(1rem, 0.509vw + 0.881rem, 1.125rem);
+$fs-700: clamp(2rem, 6.107vw + 0.569rem, 3.5rem);
+
+// Border radius
+$br-mobile: 0.5rem;
+$br-desktop: 1rem;
