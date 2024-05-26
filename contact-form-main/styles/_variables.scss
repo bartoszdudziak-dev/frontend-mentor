@@ -1,0 +1,31 @@
+// Layout
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+// Colors
+$clr-primary-200: hsl(148, 38%, 91%);
+$clr-primary-400: hsl(169, 82%, 27%);
+$clr-primary-500: hsl(0, 66%, 56%);
+
+$clr-neutral-100: hsl(0, 0%, 100%);
+$clr-neutral-400: hsl(186, 15%, 59%);
+$clr-neutral-600: hsl(187, 24%, 22%);
+
+$clr-error: #d94747;
+
+// Typography
+@font-face {
+  font-family: 'Karla';
+  src: url('../assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 800;
+  font-style: normal;
+}
+
+$ff-primary: 'Karla', sans-serif;
+
+$fs-700: 2rem;
+$fs-400: 1.125rem;
+$fs-300: 1rem;
+
+$fw-700: 700;
+$fw-400: 400;
