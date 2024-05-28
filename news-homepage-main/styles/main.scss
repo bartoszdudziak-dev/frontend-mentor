@@ -1,0 +1,49 @@
+@import 'reset', 'variables', 'header', 'hero-section', 'news-section',
+  'trending-section';
+
+body {
+  font-family: $ff-primary;
+  font-size: $fs-400;
+  font-weight: $fw-400;
+  color: $clr-netural-400;
+  background-color: $clr-netural-200;
+  line-height: 1;
+}
+
+main {
+  padding-block-end: 5rem;
+  gap: 4rem;
+  grid-template-areas:
+    'hero'
+    'news'
+    'trending';
+}
+
+.site {
+  width: min(92.2%, 1100px);
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+@media (width >= $bp-lg) {
+  main {
+    gap: 2rem;
+    grid-template-areas:
+      'hero     hero      news'
+      'trending trending  trending';
+  }
+}
+
+@media (width >= $bp-xl) {
+  main {
+    gap: 4rem;
+  }
+}
