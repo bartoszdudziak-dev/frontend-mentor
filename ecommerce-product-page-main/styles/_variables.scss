@@ -1,0 +1,42 @@
+// Layout
+$bp-xs: 375px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+$bp-slider: 450px;
+
+// Colors
+$clr-primary-400: hsl(26, 100%, 55%); //Orange
+$clr-primary-300: hsl(25, 100%, 94%); //Pale orange
+
+$clr-neutral-900: hsl(0, 0%, 0%); //Black
+$clr-neutral-700: hsl(220, 13%, 13%); //Very dark blue
+$clr-neutral-400: hsl(219, 9%, 45%); //Dark grayish blue
+$clr-neutral-300: hsl(220, 14%, 75%); //Grayish blue
+$clr-neutral-250: rgba(228, 233, 242, 1);
+$clr-neutral-200: hsl(223, 64%, 98%); //Light grayish blue
+$clr-neutral-100: hsl(0, 0%, 100%); //White
+
+// Typography
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('../assets/fonts/KumbhSans-VariableFont_YOPQ\,wght.ttf');
+  font-weight: 100 900;
+  font-style: none;
+}
+
+$ff-primary: 'Kubmh Sans', sans-serif;
+
+$fw-400: 400;
+$fw-700: 700;
+
+$fs-100: clamp(0.75rem, 0.254vw + 0.69rem, 0.813rem); //12px-13px to bp-md
+$fs-200: 0.9375rem; //15px
+$fs-300: clamp(0.938rem, 0.254vw + 0.878rem, 1rem); //15px-16px
+$fs-400: 1rem; //16px
+$fs-500: 1.125rem; //18px
+$fs-600: 1.75rem; //28px
+$fs-700: clamp(1.75rem, 2.593vw + 1.142rem, 2.75rem); //28p-44px

@@ -1,0 +1,136 @@
+.cart {
+  position: absolute;
+  width: min(360px, 120%);
+  top: -100vh;
+  left: 50%;
+  transform: translateX(-50%);
+  min-height: 256px;
+  background-color: $clr-neutral-100;
+  transition: top 350ms, opacity 600ms ease-out;
+  z-index: 3000;
+  opacity: 1;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba($color: $clr-neutral-700, $alpha: 0.3);
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+  @include flex(column);
+  gap: 1.5rem;
+}
+
+.cart[data-visible='true'] {
+  top: 4.75rem;
+  opacity: 1;
+}
+
+.cart-btn {
+  position: relative;
+  overflow: visible;
+  svg {
+    path {
+      transition: fill 250ms;
+    }
+  }
+}
+
+.cart-status {
+  display: none;
+}
+
+.cart-status[data-visible='true'] {
+  display: block;
+  position: absolute;
+  right: -25%;
+  top: -25%;
+  font-size: 0.625rem;
+  color: $clr-neutral-100;
+  background-color: $clr-primary-400;
+  font-weight: $fw-700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.5rem;
+}
+
+.cart__title {
+  display: block;
+  font-weight: $fw-700;
+  font-size: $fs-400;
+  color: $clr-neutral-700;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 4.1875rem;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: $clr-neutral-250;
+  }
+}
+
+.cart__content {
+  @include flex(column);
+}
+
+.cart__list {
+  @include flex(column);
+}
+
+.cart__item {
+  @include flex(row, space-between, center);
+  font-size: $fs-400;
+  font-weight: $fw-400;
+  color: $clr-neutral-400;
+  line-height: 1.6;
+  margin-block: 1.5rem;
+  position: relative;
+  gap: 0.5rem;
+}
+
+.cart__item-img {
+  width: 3.125rem;
+  aspect-ratio: 1;
+  border-radius: 0.25rem;
+}
+
+.cart__item-info {
+  @include flex(column);
+}
+
+.item-total-price {
+  font-weight: $fw-700;
+  color: $clr-neutral-700;
+  margin-inline-start: 0.5rem;
+}
+
+.cart__item-delete-btn {
+  width: 0.875rem;
+  aspect-ratio: 7/8;
+}
+
+.cart__notification {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  margin-inline: auto;
+  color: $clr-neutral-400;
+  font-weight: $fw-700;
+  font-size: $fs-400;
+}
+
+@media (width >= $bp-sm) {
+  .cart {
+    left: auto;
+    right: -5%;
+    transform: translateX(0%);
+  }
+}
+
+@media (hover: hover) {
+  .cart-btn:hover {
+    svg {
+      path {
+        fill: $clr-neutral-700;
+      }
+    }
+  }
+}

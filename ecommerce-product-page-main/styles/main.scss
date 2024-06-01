@@ -1,0 +1,81 @@
+@import 'reset', 'variables', 'mixins', 'header', 'slider', 'product', 'cart';
+
+body {
+  background-color: $clr-neutral-100;
+  font-family: $ff-primary;
+  position: relative;
+  line-height: 1;
+}
+
+main {
+  position: relative;
+  place-content: center;
+}
+
+.site {
+  background-color: $clr-neutral-100;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100dvh;
+}
+
+.wrapper {
+  width: min(87.2%, 1100px);
+  margin-inline: auto;
+}
+
+.overlay {
+  display: none;
+}
+
+.btn {
+  @include flex(row, center, center);
+  font-weight: $fw-700;
+  font-size: $fs-400;
+  color: $clr-neutral-700;
+  background-color: $clr-primary-400;
+  padding-block: 1.125rem;
+  border-radius: 0.625rem;
+}
+
+.overlay {
+  display: block;
+  position: absolute;
+  inset: 0 0 0 0;
+  background-color: rgba($color: $clr-neutral-900, $alpha: 0.75);
+  z-index: 1000;
+}
+
+.overlay-hidden {
+  display: none;
+}
+
+.message {
+  text-align: center;
+  position: fixed;
+  width: min(360px, 120%);
+  padding: 1rem;
+  background-color: $clr-primary-300;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  font-size: $fs-400;
+  font-weight: $fw-700;
+  color: $clr-neutral-700;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border-radius: 0;
+  z-index: 4000;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (width >= $bp-xs) {
+  .message {
+    border-radius: 0.25rem;
+    box-shadow: 0 5px 10px rgba($color: $clr-neutral-700, $alpha: 0.3);
+  }
+}
