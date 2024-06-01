@@ -172,6 +172,7 @@ const removeItemFromCart = function () {
     cartNotification.classList.remove('hidden');
     checkoutBtn.classList.add('hidden');
   }
+  updateCartImg();
 };
 
 // Updates
@@ -230,6 +231,7 @@ const updateCart = function () {
   deleteBtn.addEventListener('click', removeItemFromCart);
 
   displayCart();
+  updateCartImg();
 };
 const updateCartImg = function () {
   const getAllQuantity = function () {
