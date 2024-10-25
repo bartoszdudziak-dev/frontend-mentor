@@ -15,7 +15,7 @@ export function useDesserts() {
     setIsLoading(true);
     const fetchData = setTimeout(async () => {
       try {
-        const response = await fetch('./src/data/data.json');
+        const response = await fetch('data.json');
         const data = await response.json();
         setDesserts(data);
       } catch (error) {
