@@ -2,7 +2,7 @@ function EmptyContainer() {
   return (
     <div className="flex flex-col items-center justify-center gap-200 text-center">
       <img
-        src="src/assets/images/illustration-empty.svg"
+        src="/assets/images/illustration-empty.svg"
         alt=""
         className="size-48"
       />
