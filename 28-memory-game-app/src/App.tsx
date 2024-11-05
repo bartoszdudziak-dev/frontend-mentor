@@ -1,5 +1,5 @@
-import GameBoard from './components/board/GameBoard';
-import GameSetup from './components/menu/GameSetup';
+import GameBoard from './components/gameBoard/GameBoard';
+import GameSetup from './components/gameMenu/GameSetup';
 
 import { useGame } from './services/context/game/useGame';
 
@@ -9,11 +9,11 @@ function App() {
   } = useGame();
 
   return (
-    <div
-      className={`${!isStarted ? 'bg-secondary-navy-800' : 'bg-secondary-white-50'} flex min-h-dvh items-center justify-center font-AtkinsonHyperlegible`}
+    <main
+      className={`${!isStarted ? 'bg-secondary-navy-800' : 'bg-secondary-white-50'} font-AtkinsonHyperlegible`}
     >
       {!isStarted ? <GameSetup /> : <GameBoard />}
-    </div>
+    </main>
   );
 }
 
