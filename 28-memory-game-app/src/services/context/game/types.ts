@@ -18,11 +18,12 @@ export type Config = {
   theme: Theme;
   players: Players;
   size: Size;
+  board: number[];
 };
 
 export type Card = {
   id: number;
-  value: number;
+  value: ReactNode;
 };
 
 export type GameState = {
@@ -54,9 +55,21 @@ type GamePaused = {
   payload: boolean;
 };
 
+type GameRestarted = {
+  type: 'game/restarted';
+};
+
+type GameReseted = {
+  type: 'game/reseted';
+};
+
 type ConfigUpdate = {
   type: 'config/updated';
   payload: Config;
+};
+
+type BoardGenerated = {
+  type: 'board/generated';
 };
 
 type CardFlip = {
@@ -79,9 +92,12 @@ type TimerTicked = {
 
 export type GameAction =
   | ConfigUpdate
+  | BoardGenerated
   | GameStarted
   | GameFinished
   | GamePaused
+  | GameRestarted
+  | GameReseted
   | CardFlip
   | CardsMatched
   | CardsMissed

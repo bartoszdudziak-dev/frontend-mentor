@@ -1,3 +1,4 @@
+import { generateBoard } from '../../../utils/helpers';
 import { type GameAction, type GameState } from './types';
 
 const initialGameState: GameState = {
@@ -5,6 +6,7 @@ const initialGameState: GameState = {
     theme: 'numbers',
     players: 1,
     size: 4,
+    board: generateBoard(4),
   },
 
   mode: 'singlePlayer',
@@ -32,7 +34,10 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       const isSinglePlayer = action.payload.players === 1;
       return {
         ...state,
-        config: { ...action.payload },
+        config: {
+          ...action.payload,
+          board: generateBoard(action.payload.size),
+        },
         singlePlayer: isSinglePlayer
           ? { time: 0, moves: 0 }
           : state.singlePlayer,
@@ -46,6 +51,12 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       };
     }
 
+    case 'board/generated':
+      return {
+        ...state,
+        config: { ...state.config, board: generateBoard(state.config.size) },
+      };
+
     case 'game/started':
       return { ...state, isStarted: true };
 
@@ -54,6 +65,42 @@ function gameReducer(state: GameState, action: GameAction): GameState {
 
     case 'game/paused':
       return { ...state, isPaused: action.payload };
+
+    case 'game/restarted': {
+      if (state.mode === 'singlePlayer') {
+        return {
+          ...state,
+
+          isFinished: false,
+          isPaused: false,
+
+          flippedCards: [],
+          matchedCards: [],
+
+          singlePlayer: {
+            time: 0,
+            moves: 0,
+          },
+        };
+      } else {
+        return {
+          ...state,
+          isFinished: false,
+          isPaused: false,
+
+          flippedCards: [],
+          matchedCards: [],
+
+          multiPlayer: {
+            currentPlayer: 1,
+            score: new Array(state.config.players).fill(0),
+          },
+        };
+      }
+    }
+
+    case 'game/reseted':
+      return initialGameState;
 
     case 'card/flipped':
       return {
@@ -72,12 +119,12 @@ function gameReducer(state: GameState, action: GameAction): GameState {
           matchedCards: [...state.matchedCards, ...action.payload],
           flippedCards: [],
           isFinished:
-            state.matchedCards.length === state.config.size * state.config.size,
+            [...state.matchedCards, ...action.payload].length ===
+            state.config.size * state.config.size,
         };
       } else
         return {
           ...state,
-
           multiPlayer: {
             currentPlayer:
               state.multiPlayer.currentPlayer < state.config.players
@@ -92,7 +139,8 @@ function gameReducer(state: GameState, action: GameAction): GameState {
           matchedCards: [...state.matchedCards, ...action.payload],
           flippedCards: [],
           isFinished:
-            state.matchedCards.length === state.config.size * state.config.size,
+            [...state.matchedCards, ...action.payload].length ===
+            state.config.size * state.config.size,
         };
     }
 
@@ -125,7 +173,8 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       if (
         state.mode === 'singlePlayer' &&
         state.isStarted &&
-        !state.isFinished
+        !state.isFinished &&
+        !state.isPaused
       ) {
         return {
           ...state,

@@ -1,5 +1,7 @@
+import { ReactNode } from 'react';
+
 type FlipButtonProps = {
-  value?: number;
+  value?: ReactNode;
   onClick?: () => void;
   isMatched?: boolean;
   isActive?: boolean;

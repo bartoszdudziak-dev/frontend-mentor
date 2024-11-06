@@ -1,4 +1,12 @@
+import { shuffle } from 'lodash';
 import { Card } from '../services/context/game/types';
+
+export const generateBoard = (size: number) => {
+  const board = shuffle(
+    Array.from({ length: size * size }, (_, i) => Math.floor(i / 2)),
+  );
+  return board;
+};
 
 export const doCardsMatch = (cards: Card[]) => {
   if (cards.length !== 2) return false;
