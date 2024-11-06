@@ -29,22 +29,29 @@ export type GameState = {
   config: Config;
 
   mode: 'singlePlayer' | 'multiPlayer';
-  singlePlayer: { time: number; moves: number } | null;
-  multiPlayer: { currentPlayer: number; score: number[] } | null;
-
   isStarted: boolean;
   isFinished: boolean;
+  isPaused: boolean;
+
   flippedCards: Card[] | [];
   matchedCards: Card[] | [];
+
+  singlePlayer: { time: number; moves: number };
+  multiPlayer: { currentPlayer: number; score: number[] };
 };
 
 // Actions
-type GameStart = {
+type GameStarted = {
   type: 'game/started';
 };
 
-type GameFinish = {
+type GameFinished = {
   type: 'game/finished';
+};
+
+type GamePaused = {
+  type: 'game/paused';
+  payload: boolean;
 };
 
 type ConfigUpdate = {
@@ -66,25 +73,16 @@ type CardsMissed = {
   type: 'card/missed';
 };
 
-type PlayerScored = {
-  type: 'player/scored';
-};
-
-type PlayerMissed = {
-  type: 'player/missed';
-};
-
 type TimerTicked = {
   type: 'timer/ticked';
 };
 
 export type GameAction =
   | ConfigUpdate
-  | GameStart
-  | GameFinish
+  | GameStarted
+  | GameFinished
+  | GamePaused
   | CardFlip
   | CardsMatched
   | CardsMissed
-  | PlayerScored
-  | PlayerMissed
   | TimerTicked;

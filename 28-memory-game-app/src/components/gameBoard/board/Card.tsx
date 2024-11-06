@@ -17,12 +17,6 @@ function Card(card: Card) {
         matchedCards.some(matchedCard => matchedCard.id === card.id)
       }
       flipDirection="horizontal"
-      containerClassName={
-        flippedCards.some(flippedCard => flippedCard.id === card.id) ||
-        matchedCards.some(matchedCard => matchedCard.id === card.id)
-          ? ''
-          : ''
-      }
     >
       <FlipButton onClick={() => flipCard(card)} value={card.value} />
       <FlipButton

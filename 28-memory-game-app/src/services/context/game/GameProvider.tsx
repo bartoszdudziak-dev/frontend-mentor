@@ -21,12 +21,10 @@ export function GameProvider({ children }: GameProviderProps) {
       if (doCardsMatch(flippedCards))
         timeout = setTimeout(() => {
           dispatch({ type: 'card/matched', payload: flippedCards });
-          dispatch({ type: 'player/scored' });
         }, CARD_MATCHING_DURATION);
       else {
         timeout = setTimeout(() => {
           dispatch({ type: 'card/missed' });
-          dispatch({ type: 'player/missed' });
         }, CARD_MATCHING_DURATION);
       }
     }

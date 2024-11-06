@@ -6,19 +6,24 @@ const initialGameState: GameState = {
     players: 1,
     size: 4,
   },
+
   mode: 'singlePlayer',
+  isStarted: false,
+  isFinished: false,
+  isPaused: false,
+
+  flippedCards: [],
+  matchedCards: [],
 
   singlePlayer: {
     time: 0,
     moves: 0,
   },
 
-  multiPlayer: null,
-
-  isStarted: true,
-  isFinished: false,
-  flippedCards: [],
-  matchedCards: [],
+  multiPlayer: {
+    currentPlayer: 1,
+    score: [0, 0],
+  },
 };
 
 function gameReducer(state: GameState, action: GameAction): GameState {
@@ -28,60 +33,91 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       return {
         ...state,
         config: { ...action.payload },
-        singlePlayer: isSinglePlayer ? { time: 0, moves: 0 } : null,
+        singlePlayer: isSinglePlayer
+          ? { time: 0, moves: 0 }
+          : state.singlePlayer,
         multiPlayer: !isSinglePlayer
           ? {
               currentPlayer: 1,
               score: new Array(action.payload.players).fill(0),
             }
-          : null,
+          : state.multiPlayer,
         mode: isSinglePlayer ? 'singlePlayer' : 'multiPlayer',
       };
     }
+
     case 'game/started':
       return { ...state, isStarted: true };
+
     case 'game/finished':
       return { ...state, isFinished: true };
+
+    case 'game/paused':
+      return { ...state, isPaused: action.payload };
+
     case 'card/flipped':
       return {
         ...state,
         flippedCards: [...state.flippedCards, action.payload],
       };
+
     case 'card/matched': {
-      return {
-        ...state,
-        matchedCards: [...state.matchedCards, ...action.payload],
-        flippedCards: [],
-      };
-    }
-    case 'card/missed':
-      return { ...state, flippedCards: [] };
-    case 'player/scored': {
       if (state.mode === 'singlePlayer') {
         return {
           ...state,
           singlePlayer: {
-            time: state.singlePlayer?.time || 0,
-            moves: (state.singlePlayer?.moves || 0) + 1,
+            ...state.singlePlayer,
+            moves: state.singlePlayer.moves + 1,
           },
+          matchedCards: [...state.matchedCards, ...action.payload],
+          flippedCards: [],
           isFinished:
             state.matchedCards.length === state.config.size * state.config.size,
         };
-      } else {
-        return state;
-      }
+      } else
+        return {
+          ...state,
+
+          multiPlayer: {
+            currentPlayer:
+              state.multiPlayer.currentPlayer < state.config.players
+                ? state.multiPlayer.currentPlayer + 1
+                : 1,
+            score: state.multiPlayer.score.map((playerScore, i) =>
+              i + 1 === state.multiPlayer.currentPlayer
+                ? playerScore + 1
+                : playerScore,
+            ),
+          },
+          matchedCards: [...state.matchedCards, ...action.payload],
+          flippedCards: [],
+          isFinished:
+            state.matchedCards.length === state.config.size * state.config.size,
+        };
     }
-    case 'player/missed': {
+
+    case 'card/missed': {
       if (state.mode === 'singlePlayer') {
         return {
           ...state,
           singlePlayer: {
-            ...(state.singlePlayer || { time: 0, moves: 0 }),
-            moves: (state.singlePlayer?.moves || 0) + 1,
+            ...state.singlePlayer,
+            moves: state.singlePlayer.moves + 1,
           },
+          flippedCards: [],
         };
       } else {
-        return state;
+        return {
+          ...state,
+          multiPlayer: {
+            ...state.multiPlayer,
+            currentPlayer:
+              state.multiPlayer.currentPlayer < state.config.players
+                ? state.multiPlayer.currentPlayer + 1
+                : 1,
+          },
+          flippedCards: [],
+        };
       }
     }
 
@@ -94,8 +130,8 @@ function gameReducer(state: GameState, action: GameAction): GameState {
         return {
           ...state,
           singlePlayer: {
-            moves: state.singlePlayer?.moves || 0,
-            time: (state.singlePlayer?.time || 0) + 1,
+            ...state.singlePlayer,
+            time: state.singlePlayer.time + 1,
           },
         };
       }

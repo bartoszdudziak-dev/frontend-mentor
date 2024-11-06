@@ -1,10 +1,15 @@
 import { ChildrenNodeProp } from '../../../utils/types';
 
-function StatsLabel({ children }: ChildrenNodeProp) {
+function StatsLabel({
+  children,
+  isActive,
+}: { isActive?: boolean } & ChildrenNodeProp) {
+  const activePlayer = isActive
+    ? 'text-secondary-white-50'
+    : 'text-secondary-steel-400';
+  console.log('test:', activePlayer);
   return (
-    <div className="text-base text-secondary-steel-400 md:text-lg">
-      {children}
-    </div>
+    <div className={`${activePlayer} text-base md:text-lg`}>{children}</div>
   );
 }
 export default StatsLabel;
