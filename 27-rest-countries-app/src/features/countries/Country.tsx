@@ -41,7 +41,10 @@ function Country({ country }: CountrySuperProps) {
         <div className="mb-8 flex flex-col justify-between gap-8 md:flex-row lg:mb-16">
           <div className="space-y-3">
             <Info label="Native name" value={country.nativeName} />
-            <Info label="Population" value={country.population} />
+            <Info
+              label="Population"
+              value={country.population.toLocaleString()}
+            />
             <Info label="Region" value={country.region} />
             <Info label="Sub Region" value={country.subregion} />
             <Info label="Capital" value={country.capital} />

@@ -7,14 +7,14 @@ function ToggleDarkMode() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <div className="flex items-center justify-center gap-2.5 text-xs md:text-sm xl:text-base">
+    <div className="text-xs md:text-sm xl:text-base">
       <button
         onClick={toggleDarkMode}
-        className="transition-all duration-300 hover:scale-110 hover:opacity-50"
+        className="flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-110 hover:opacity-50"
       >
         {isDarkMode ? <BsMoonFill /> : <BsMoon />}
+        <span>Dark Mode</span>
       </button>
-      <span>Dark Mode</span>
     </div>
   );
 }
