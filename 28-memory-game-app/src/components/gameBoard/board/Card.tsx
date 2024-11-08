@@ -18,7 +18,7 @@ function Card(card: Card) {
       }
       flipDirection="horizontal"
     >
-      <FlipButton onClick={() => flipCard(card)} value={card.value} />
+      <FlipButton onClick={() => flipCard(card)} />
       <FlipButton
         value={card.value}
         isActive={

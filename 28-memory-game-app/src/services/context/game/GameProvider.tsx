@@ -3,7 +3,10 @@ import { gameReducer, initialGameState } from './gameReducer';
 import { GameContext } from './GameContext';
 import { useEffect, useReducer } from 'react';
 import { doCardsMatch } from '../../../utils/helpers';
-import { CARD_MATCHING_DURATION } from '../../../utils/constants';
+import {
+  BOARD_GENERATING_DELAY,
+  CARD_MATCHING_DURATION,
+} from '../../../utils/constants';
 
 export function GameProvider({ children }: GameProviderProps) {
   const [state, dispatch] = useReducer(gameReducer, initialGameState);
@@ -12,6 +15,14 @@ export function GameProvider({ children }: GameProviderProps) {
   function flipCard(card: Card) {
     if (flippedCards.length === 2) return;
     dispatch({ type: 'card/flipped', payload: card });
+  }
+
+  function gameRestart() {
+    dispatch({ type: 'game/restarted' });
+
+    setTimeout(() => {
+      dispatch({ type: 'board/generated' });
+    }, BOARD_GENERATING_DELAY);
   }
 
   useEffect(() => {
@@ -33,7 +44,7 @@ export function GameProvider({ children }: GameProviderProps) {
   }, [flippedCards]);
 
   return (
-    <GameContext.Provider value={{ state, dispatch, flipCard }}>
+    <GameContext.Provider value={{ state, dispatch, flipCard, gameRestart }}>
       {children}
     </GameContext.Provider>
   );

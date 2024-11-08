@@ -4,6 +4,7 @@ export type GameContextProps = {
   state: GameState;
   dispatch: React.Dispatch<GameAction>;
   flipCard: (card: Card) => void;
+  gameRestart: () => void;
 };
 
 export type GameProviderProps = {

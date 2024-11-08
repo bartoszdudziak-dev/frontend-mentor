@@ -14,6 +14,7 @@ import { FaFish } from 'react-icons/fa';
 import { GiFeather } from 'react-icons/gi';
 import Card from './Card';
 import { useGame } from '../../../services/context/game/useGame';
+import ModalFinish from './modal/ModalFinish';
 
 const memoryIcons = [
   <FiAnchor />,
@@ -48,20 +49,22 @@ function Board() {
     6: 'grid-cols-6 grid-cols-6 gap-2 md:gap-4 md:max-w-[572px] text-2xl md:text-5xl',
   };
 
-  // if (isFinished) return <div className="text-black">Congratulations</div>;
-
   return (
-    <div
-      className={`${gridSize[size]} mx-auto grid w-full max-w-[375px] place-self-center text-secondary-white-50`}
-    >
-      {Array.from({ length: size * size }).map((_, i) => (
-        <Card
-          key={i}
-          id={i}
-          value={theme === 'numbers' ? board[i] : memoryIcons[board[i]]}
-        />
-      ))}
-    </div>
+    <>
+      <div
+        className={`${gridSize[size]} mx-auto grid w-full max-w-[375px] place-self-center text-secondary-white-50`}
+      >
+        {Array.from({ length: size * size }).map((_, i) => (
+          <Card
+            key={i}
+            id={i}
+            value={theme === 'numbers' ? board[i] : memoryIcons[board[i]]}
+          />
+        ))}
+      </div>
+
+      <ModalFinish />
+    </>
   );
 }
 

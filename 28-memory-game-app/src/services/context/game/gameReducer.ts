@@ -60,9 +60,6 @@ function gameReducer(state: GameState, action: GameAction): GameState {
     case 'game/started':
       return { ...state, isStarted: true };
 
-    case 'game/finished':
-      return { ...state, isFinished: true };
-
     case 'game/paused':
       return { ...state, isPaused: action.payload };
 
@@ -127,9 +124,12 @@ function gameReducer(state: GameState, action: GameAction): GameState {
           ...state,
           multiPlayer: {
             currentPlayer:
-              state.multiPlayer.currentPlayer < state.config.players
-                ? state.multiPlayer.currentPlayer + 1
-                : 1,
+              [...state.matchedCards, ...action.payload].length ===
+              state.config.size * state.config.size
+                ? state.multiPlayer.currentPlayer
+                : state.multiPlayer.currentPlayer < state.config.players
+                  ? state.multiPlayer.currentPlayer + 1
+                  : 1,
             score: state.multiPlayer.score.map((playerScore, i) =>
               i + 1 === state.multiPlayer.currentPlayer
                 ? playerScore + 1

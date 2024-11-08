@@ -4,38 +4,15 @@ import Logo from '../../ui/Logo';
 import { useState } from 'react';
 import { useMobile } from '../../../hooks/useLayout';
 import { useGame } from '../../../services/context/game/useGame';
-import { CARD_MATCHING_DURATION } from '../../../utils/constants';
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    maxWidth: '500px',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    borderRadius: '0.75rem',
-    padding: '1.5rem',
-  },
-  overlay: { backgroundColor: 'rgba(0, 0, 0, 0.6)' },
-};
+import { modalStyle } from '../../../utils/constants';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useMobile();
-  const { dispatch } = useGame();
+  const { dispatch, gameRestart } = useGame();
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-
-  const restart = () => {
-    dispatch({ type: 'game/restarted' });
-
-    setTimeout(() => {
-      dispatch({ type: 'board/generated' });
-      closeModal();
-    }, CARD_MATCHING_DURATION);
-  };
 
   return (
     <>
@@ -54,7 +31,7 @@ function Header() {
             size="small"
             variant="primary"
             className="max-w-fit"
-            onClick={restart}
+            onClick={gameRestart}
           >
             Restart
           </Button>
@@ -71,18 +48,21 @@ function Header() {
 
       <ReactModal
         isOpen={isOpen && isMobile}
-        style={customStyles}
+        style={{
+          ...modalStyle,
+          content: { ...modalStyle.content, maxWidth: '500px' },
+        }}
         appElement={document.getElementById('root')!}
         onRequestClose={closeModal}
         onAfterOpen={() => dispatch({ type: 'game/paused', payload: true })}
         onAfterClose={() => dispatch({ type: 'game/paused', payload: false })}
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 p-6 font-AtkinsonHyperlegible">
           <Button
             size="large"
             variant="primary"
             onClick={() => {
-              restart();
+              gameRestart();
               closeModal();
             }}
           >
