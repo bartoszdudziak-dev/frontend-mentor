@@ -26,6 +26,8 @@ export type Card = {
   id: number;
   value: ReactNode;
 };
+type SinglePlayer = { time: number; moves: number };
+type MultiPlayer = { currentPlayer: number; score: number[] };
 
 export type GameState = {
   config: Config;
@@ -38,8 +40,8 @@ export type GameState = {
   flippedCards: Card[] | [];
   matchedCards: Card[] | [];
 
-  singlePlayer: { time: number; moves: number };
-  multiPlayer: { currentPlayer: number; score: number[] };
+  singlePlayer: SinglePlayer;
+  multiPlayer: MultiPlayer;
 };
 
 // Actions

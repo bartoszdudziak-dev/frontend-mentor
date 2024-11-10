@@ -10,7 +10,7 @@ function MultiPlayerStats() {
 
   return (
     <div className="mx-auto flex w-full max-w-[1158px] gap-6 md:gap-8">
-      {multiPlayer?.score.map((playerScore: number, i) => (
+      {multiPlayer.score.map((playerScore: number, i) => (
         <StatsContainer key={i} isActive={multiPlayer.currentPlayer - 1 === i}>
           <StatsLabel isActive={multiPlayer.currentPlayer - 1 === i}>
             <span className="md:hidden">{`P${i + 1}`}</span>
