@@ -1,16 +1,13 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Navigation from './navigation/Navigation';
 
 function Layout() {
   return (
-    <div className="font-primary bg-primary-dark-blue min-h-dvh font-light text-white">
-      <h1>Entertnainment app</h1>
-
-      <Link to="/">Home</Link>
-      <Link to="/movies">Movies</Link>
-      <Link to="/series">Series</Link>
-      <Link to="/bookmarks">Bookmarks</Link>
-
-      <Outlet />
+    <div className="grid min-h-dvh grid-rows-[auto_1fr] gap-6 bg-primary-dark-blue font-primary font-light text-white md:gap-8 md:p-6 lg:grid-cols-[auto_1fr] lg:grid-rows-1 lg:gap-8">
+      <Navigation />
+      <div className="px-4 md:px-0">
+        <Outlet />
+      </div>
     </div>
   );
 }

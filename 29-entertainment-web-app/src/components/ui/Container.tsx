@@ -1,11 +1,11 @@
-import { WithChildren } from '../../utils/commonTypes';
+import { type WithChildren, type WithClassName } from '../../utils/commonTypes';
 
-type ContainerProps = { fullWidth?: boolean } & WithChildren;
+type ContainerProps = { fullWidth?: boolean } & WithChildren & WithClassName;
 
-function Container({ children, fullWidth }: ContainerProps) {
+function Container({ children, className, fullWidth = false }: ContainerProps) {
   return (
     <div
-      className={`${fullWidth ? 'w-full' : 'mx-auto w-[90%] max-w-[80rem]'}`}
+      className={`${className ? className : ''} ${fullWidth ? 'w-full' : 'mx-auto max-w-[80rem]'} h-full`}
     >
       {children}
     </div>

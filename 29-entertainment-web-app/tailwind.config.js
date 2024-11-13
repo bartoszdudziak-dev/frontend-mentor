@@ -10,7 +10,7 @@ export default {
         'primary-dark-blue': '#10141E',
         'secondary-dark-blue': '#161D2F',
         'accent-red': '#FC4747',
-        'accent-grayish': '#5A698F',
+        'accent-gray': '#5A698F',
       },
       fontWeight: {
         light: 300,
