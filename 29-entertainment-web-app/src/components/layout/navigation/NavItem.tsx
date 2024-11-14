@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 type NavItemProps = { to: string; icon: JSX.Element };
 
 function NavItem({ to, icon }: NavItemProps) {
   return (
-    <li className="text-accent-gray w-4 shadow transition-all duration-200 hover:scale-105 hover:text-white md:w-5">
-      <Link to={to}>{icon}</Link>
+    <li>
+      <NavLink className="nav-link" to={to}>
+        <span className="nav-icon block w-4 shadow md:w-5">{icon}</span>
+      </NavLink>
     </li>
   );
 }

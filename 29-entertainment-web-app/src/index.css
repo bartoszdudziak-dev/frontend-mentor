@@ -6,3 +6,21 @@
   font-family: 'Outfit';
   src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
 }
+
+.nav-icon {
+  color: #5a698f;
+  transition: all 300ms;
+}
+
+.nav-link.active {
+  pointer-events: none;
+}
+
+.nav-link:hover .nav-icon {
+  color: #fc4747;
+  scale: 1.05;
+}
+
+.nav-link.active .nav-icon {
+  color: #ffffff;
+}
