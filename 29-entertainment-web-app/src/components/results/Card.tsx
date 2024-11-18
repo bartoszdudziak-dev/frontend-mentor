@@ -16,6 +16,7 @@ function Card({ title, poster, year, type, isBookmarked }: CardType) {
     <article className="relative">
       <div className="group relative mb-2 aspect-[11/7] w-full cursor-pointer items-center overflow-hidden rounded-lg shadow">
         <img
+          loading="lazy"
           alt={hasPoster ? `Poster of ${title}` : 'Poster not available'}
           src={hasPoster ? poster : '/assets/logo.svg'}
           className={`${hasPoster ? 'object-cover object-top' : ''} h-full w-full object-center transition-all duration-300 group-hover:opacity-50`}

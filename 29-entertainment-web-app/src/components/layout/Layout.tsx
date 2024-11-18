@@ -4,11 +4,13 @@ import { Outlet } from 'react-router-dom';
 
 function Layout() {
   return (
-    <div className="grid min-h-dvh grid-rows-[auto_1fr] gap-6 bg-primary-dark-blue font-primary font-light text-white md:gap-8 md:p-6 lg:grid-cols-[auto_1fr] lg:grid-rows-1 lg:gap-8 lg:p-8">
+    <div className="grid h-dvh grid-rows-[auto_1fr] gap-6 overflow-hidden bg-primary-dark-blue font-primary font-light text-white md:gap-8 md:p-6 lg:grid-cols-[auto_1fr] lg:grid-rows-1 lg:gap-8 lg:p-8">
       <Navigation />
-      <div className="px-4 md:px-0">
+      <div className="flex flex-col overflow-hidden px-4 md:px-0">
         <SearchBar />
-        <Outlet />
+        <main id="main" className="flex-1 overflow-y-scroll shadow-inner">
+          <Outlet />
+        </main>
       </div>
     </div>
   );

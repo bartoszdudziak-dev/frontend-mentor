@@ -1,7 +1,7 @@
-import { type DataType } from '../../utils/commonTypes';
+import { type Media } from '../../services/api/mediaTypes';
 import Card from './Card';
 
-type SearchResultsProps = { results: DataType };
+type SearchResultsProps = { results: Media[] };
 
 function SearchResults({ results }: SearchResultsProps) {
   return (

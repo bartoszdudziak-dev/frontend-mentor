@@ -24,3 +24,13 @@
 .nav-link.active .nav-icon {
   color: #ffffff;
 }
+
+#main {
+  overflow-y: auto;
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+#main::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
