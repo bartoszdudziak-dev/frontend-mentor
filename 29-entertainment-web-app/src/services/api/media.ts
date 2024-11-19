@@ -1,5 +1,5 @@
 import { API_URL } from '../../utils/constants';
-import { FetchResult, FetchType } from './mediaTypes';
+import { FetchResult, FetchType } from './fetchTypes';
 
 export async function fetchMedia(
   pageParam: number,
@@ -11,7 +11,11 @@ export async function fetchMedia(
   if (type !== 'all') fetchUrl += `&type=${type}`;
 
   if (query) fetchUrl += `&s=${query}`;
-  else fetchUrl += `&s=war`;
+  else {
+    if (type === 'all') fetchUrl += `&s=top`;
+    if (type === 'movie') fetchUrl += `&s=movie`;
+    if (type === 'series') fetchUrl += `&s=series`;
+  }
 
   const response = await fetch(fetchUrl);
 

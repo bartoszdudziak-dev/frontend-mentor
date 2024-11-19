@@ -5,7 +5,7 @@ import {
 } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { type FetchResult } from '../services/api/mediaTypes';
+import { type FetchResult } from '../services/api/fetchTypes';
 
 type fetchNextPageType = (
   options?: FetchNextPageOptions,
@@ -19,7 +19,7 @@ export function useScrollPagination(
 ) {
   const { ref, inView } = useInView({
     root: document.querySelector('#main'),
-    rootMargin: '300px',
+    rootMargin: '500px',
     threshold: 0,
   });
 

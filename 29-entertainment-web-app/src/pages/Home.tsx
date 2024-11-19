@@ -5,6 +5,7 @@ import ResultsSummary from '../components/results/ResultsSummary';
 import { useSearch } from '../context/search/useSearch';
 import { useMedia } from '../services/useMedia';
 import { useScrollPagination } from '../hooks/useScrollPagination';
+import Heading from '../components/ui/Heading';
 
 function Home() {
   const { debouncedSearchQuery } = useSearch();
@@ -12,6 +13,7 @@ function Home() {
   const {
     data,
     error,
+    totalResults,
     fetchNextPage,
     isFetchingNextPage,
     isLoading,
@@ -30,6 +32,11 @@ function Home() {
 
   return (
     <>
+      {!debouncedSearchQuery ? (
+        <Heading>Recommended for you</Heading>
+      ) : (
+        <ResultsSummary count={totalResults} query={debouncedSearchQuery} />
+      )}
       <SearchResults results={data} />
       <span ref={ref}>{isFetchingNextPage && <Spinner />}</span>
     </>
