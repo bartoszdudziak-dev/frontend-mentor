@@ -1,5 +1,5 @@
-import { type Media } from '../../services/api/fetchTypes';
-import { useBookmarks } from '../../services/useBookmarks';
+import { type Media } from '../../../services/api/fetchTypes';
+import { useBookmarks } from '../../../services/useBookmarks';
 import Card from './Card';
 
 type SearchResultsProps = { results: Media[] };

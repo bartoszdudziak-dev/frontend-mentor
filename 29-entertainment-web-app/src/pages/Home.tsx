@@ -1,11 +1,12 @@
 import Error from '../components/ui/Error';
 import Spinner from '../components/ui/Spinner';
-import SearchResults from '../components/results/SearchResults';
-import ResultsSummary from '../components/results/ResultsSummary';
+import SearchResults from '../components/features/results/SearchResults';
+import ResultsSummary from '../components/features/results/ResultsSummary';
 import { useSearch } from '../context/search/useSearch';
 import { useMedia } from '../services/useMedia';
 import { useScrollPagination } from '../hooks/useScrollPagination';
 import Heading from '../components/ui/Heading';
+import Trending from '../components/features/trending/Trending';
 
 function Home() {
   const { debouncedSearchQuery } = useSearch();
@@ -33,7 +34,10 @@ function Home() {
   return (
     <>
       {!debouncedSearchQuery ? (
-        <Heading>Recommended for you</Heading>
+        <>
+          <Trending />
+          <Heading>Recommended for you</Heading>
+        </>
       ) : (
         <ResultsSummary count={totalResults} query={debouncedSearchQuery} />
       )}

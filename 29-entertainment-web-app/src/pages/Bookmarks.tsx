@@ -1,5 +1,5 @@
-import ResultsSummary from '../components/results/ResultsSummary';
-import SearchResults from '../components/results/SearchResults';
+import SearchResults from '../components/features/results/SearchResults';
+import ResultsSummary from '../components/features/results/ResultsSummary';
 import Heading from '../components/ui/Heading';
 import { useSearch } from '../context/search/useSearch';
 import { Media } from '../services/api/fetchTypes';

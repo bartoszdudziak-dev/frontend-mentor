@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { type CardType } from '../../utils/commonTypes';
-import { categories } from '../../utils/constants';
-import IconBookmarkEmpty from '../icons/IconBookmarkEmpty';
-import IconBookmarkFull from '../icons/IconBookmarkFull';
-import IconCategoryMovie from '../icons/IconCategoryMovie';
-import IconCategorySeries from '../icons/IconCategorySeries';
-import IconPlay from '../icons/IconPlay';
+import { type CardType } from '../../../utils/commonTypes';
+import { categories } from '../../../utils/constants';
+import IconBookmarkEmpty from '../../icons/IconBookmarkEmpty';
+import IconBookmarkFull from '../../icons/IconBookmarkFull';
+import IconCategoryMovie from '../../icons/IconCategoryMovie';
+import IconCategorySeries from '../../icons/IconCategorySeries';
+import IconPlay from '../../icons/IconPlay';
 
 function Card({
   id,
@@ -26,13 +26,13 @@ function Card({
 
   return (
     <article className="relative">
-      <div className="group relative mb-2 aspect-[11/7] w-full cursor-pointer items-center overflow-hidden rounded-lg shadow">
+      <div className="group relative mb-2 aspect-[4/3] w-full cursor-pointer items-center overflow-hidden rounded-lg shadow">
         <img
           loading="lazy"
           alt={hasPoster ? `Poster of ${title}` : 'Poster not available'}
           src={hasPoster ? poster : '/assets/logo.svg'}
           onError={() => setIsError(true)}
-          className={`${hasPoster ? 'object-cover object-top' : ''} h-full w-full object-center transition-all duration-300 group-hover:opacity-50`}
+          className={`${hasPoster ? 'object-fill' : ''} h-full w-full object-center transition-all duration-300 group-hover:opacity-50`}
         />
         <div className="absolute left-1/2 top-1/2 hidden w-full max-w-[7.5rem] -translate-x-1/2 -translate-y-1/2 items-center gap-3 rounded-full bg-white bg-opacity-25 p-2.5 opacity-0 transition-all duration-300 group-hover:opacity-100 lg:flex xl:gap-5 xl:text-lg">
           <IconPlay className="w-6 xl:w-[1.9375rem]" />
