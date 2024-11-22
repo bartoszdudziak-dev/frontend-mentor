@@ -25,50 +25,13 @@
   color: #ffffff;
 }
 
-#main {
-  overflow-y: auto;
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
-  scrollbar-width: none; /* For Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
 }
-
-#main::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
-}
-
-/* custrom scroll */
-/* Apply to the entire page */
-::-webkit-scrollbar {
-  height: 8px; /* Set the height of the horizontal scrollbar */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #555; /* Dark shade for the scrollbar thumb */
-  border-radius: 4px; /* Rounded corners for elegance */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #444; /* Slightly darker shade on hover for feedback */
-}
-
-::-webkit-scrollbar-track {
-  background: #222; /* Dark shade for the track */
-  border-radius: 4px; /* Match the thumb for a cohesive look */
-}
-
-/* For horizontal scrollbars inside specific containers */
-.scrollable-container::-webkit-scrollbar {
-  height: 6px;
-}
-
-.scrollable-container::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 3px;
-}
-
-.scrollable-container::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-.scrollable-container::-webkit-scrollbar-track {
-  background: #333;
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  display: none;
 }

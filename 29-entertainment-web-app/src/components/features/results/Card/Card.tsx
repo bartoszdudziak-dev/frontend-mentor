@@ -1,14 +1,9 @@
-import { type Media } from '../../../../services/api/fetchTypes';
+import { type CardProps } from '../../../../utils/commonTypes';
 import BookmarkButton from './BookmarkButton';
 import CardDetails from './CardDetails';
 import CardImage from './CardImage';
 import CardTtitle from './CardTtitle';
 import PlayButton from './PlayButton';
-
-type CardProps = Omit<Media, 'isTrending'> & {
-  toggleBookmark: () => void;
-  isBookmarked: boolean;
-};
 
 function Card({
   title,

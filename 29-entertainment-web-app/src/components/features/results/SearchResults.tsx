@@ -13,7 +13,7 @@ function SearchResults({ results }: SearchResultsProps) {
         <Card
           key={result.title}
           title={result.title}
-          thumbnail={result.thumbnail}
+          thumbnail={result.thumbnail.regular}
           year={result.year}
           category={result.category}
           rating={result.rating}

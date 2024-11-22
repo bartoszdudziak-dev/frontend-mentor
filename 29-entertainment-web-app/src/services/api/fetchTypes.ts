@@ -1,17 +1,17 @@
-type TrendingThumnail = {
+export type TrendingThumbnail = {
   small: string;
   large: string;
 };
 
-type RegularThumnail = {
+export type RegularThumbnail = {
   small: string;
   medium: string;
   large: string;
 };
 
 export type ThumbnailType = {
-  trending: TrendingThumnail;
-  regular: RegularThumnail;
+  trending: TrendingThumbnail;
+  regular: RegularThumbnail;
 };
 
 export type MediaCategory = 'Movie' | 'TV Series';

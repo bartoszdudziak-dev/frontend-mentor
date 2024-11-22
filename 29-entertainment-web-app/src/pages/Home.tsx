@@ -3,6 +3,7 @@ import Spinner from '../components/ui/Spinner';
 import SearchResults from '../components/features/results/SearchResults';
 import ResultsSummary from '../components/features/results/ResultsSummary';
 import Heading from '../components/ui/Heading';
+import Trending from '../components/features/trending/Trending';
 import { useMedia } from '../services/useMedia';
 import { useSearch } from '../context/search/useSearch';
 
@@ -32,7 +33,7 @@ function Home() {
   ) : (
     <>
       <Heading>Trending</Heading>
-      <SearchResults results={trendingMedia} />
+      <Trending results={trendingMedia} />
 
       <Heading>Recommended</Heading>
       <SearchResults results={recommendedMedia} />

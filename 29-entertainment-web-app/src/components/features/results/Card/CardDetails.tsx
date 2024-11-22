@@ -6,11 +6,19 @@ type CardDetailsProps = {
   category: MediaCategory;
   rating: string;
   year: number;
+  size?: 'regular' | 'large';
 };
 
-function CardDetails({ category, rating, year }: CardDetailsProps) {
+function CardDetails({
+  category,
+  rating,
+  year,
+  size = 'regular',
+}: CardDetailsProps) {
   return (
-    <div className="flex gap-1.5 text-[0.6875rem] opacity-75 md:gap-2 md:text-[0.8125rem]">
+    <div
+      className={`${size === 'regular' ? 'md:text-[0.8125rem]' : 'md:text-[0.9375rem]'} flex gap-1.5 text-[0.6875rem] opacity-75 md:gap-2`}
+    >
       <span>{year}</span>
       <span>&middot;</span>
       <div className="flex items-center gap-1">

@@ -1,22 +1,25 @@
-import { ThumbnailType } from '../../../../services/api/fetchTypes';
+import { type RegularThumbnail } from '../../../../services/api/fetchTypes';
 import { BREAKPOINTS } from '../../../../utils/constants';
 
-type CardImageProps = { thumbnail: ThumbnailType; title: string };
+type CardImageProps = {
+  thumbnail: RegularThumbnail;
+  title: string;
+};
 
 function CardImage({ title, thumbnail }: CardImageProps) {
   return (
     <picture>
       <source
         media={`(max-width:${BREAKPOINTS.SMALL - 1}px)`}
-        srcSet={thumbnail.regular.small}
+        srcSet={thumbnail.small}
       />
       <source
         media={`(min-width:${BREAKPOINTS.SMALL}px) and (max-width:${BREAKPOINTS.MEDIUM - 1}px)`}
-        srcSet={thumbnail.regular.medium}
+        srcSet={thumbnail.medium}
       />
       <source
         media={`(min-width:${BREAKPOINTS.MEDIUM}px)`}
-        srcSet={thumbnail.regular.large}
+        srcSet={thumbnail.large}
       />
       <img
         className={

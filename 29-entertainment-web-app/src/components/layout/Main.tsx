@@ -16,7 +16,7 @@ function Main({ children }: WithChildren) {
     <main
       ref={mainRef}
       id="main"
-      className="relative flex-1 space-y-6 overflow-y-scroll shadow-inner"
+      className="no-scrollbar relative flex-1 space-y-6 overflow-y-scroll shadow-inner"
     >
       {children}
     </main>
