@@ -26,12 +26,11 @@
 }
 
 .no-scrollbar {
-  scrollbar-width: none;
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar in IE */
+  overflow-y: auto; /* Allows vertical scrolling */
+  -webkit-overflow-scrolling: touch; /* Ensures smooth scrolling on touch devices */
 }
 .no-scrollbar::-webkit-scrollbar {
-  width: 0;
-  display: none;
+  display: none; /* Hides scrollbar in WebKit browsers */
 }

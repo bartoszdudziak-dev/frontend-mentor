@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { type Media } from '../../../services/api/fetchTypes';
 import { useBookmarks } from '../../../services/useBookmarks';
 import TrendingCard from './TrendingCard';
@@ -8,9 +9,32 @@ type TrendingProps = {
 
 function Trending({ results }: TrendingProps) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
+  const trendingContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const trendingContainer = trendingContainerRef.current;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (e.deltaY !== 0 && trendingContainer) {
+        e.preventDefault();
+        trendingContainer.scrollLeft += e.deltaY;
+      }
+    };
+
+    if (trendingContainer)
+      trendingContainer.addEventListener('wheel', handleWheel);
+
+    return () => {
+      if (trendingContainer)
+        trendingContainer.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
 
   return (
-    <div className="no-scrollbar grid auto-cols-[65%] grid-flow-col gap-4 overflow-x-auto md:auto-cols-[55%] md:gap-10 md:pb-8 lg:auto-cols-[35%]">
+    <div
+      className="no-scrollbar grid auto-cols-[65%] grid-flow-col gap-4 overflow-x-auto md:auto-cols-[55%] md:gap-10 md:pb-8 lg:auto-cols-[35%]"
+      ref={trendingContainerRef}
+    >
       {results.map(result => (
         <TrendingCard
           key={result.title}
