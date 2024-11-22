@@ -1,71 +1,72 @@
-import SearchResults from '../components/features/results/SearchResults';
 import ResultsSummary from '../components/features/results/ResultsSummary';
+import SearchResults from '../components/features/results/SearchResults';
+import Error from '../components/ui/Error';
 import Heading from '../components/ui/Heading';
+import Spinner from '../components/ui/Spinner';
 import { useSearch } from '../context/search/useSearch';
-import { Media } from '../services/api/fetchTypes';
 import { useBookmarks } from '../services/useBookmarks';
+import { useMedia } from '../services/useMedia';
+import { clearString } from '../utils/helpers';
 
 function Bookmarks() {
-  const { bookmarks, searchBookmarks } = useBookmarks();
   const { debouncedSearchQuery } = useSearch();
+  const { data: media, error, isPending } = useMedia({});
+  const { isBookmarked } = useBookmarks();
 
-  const searchedBookmarks = searchBookmarks(debouncedSearchQuery);
+  if (isPending) return <Spinner absoluteCentered={true} />;
 
-  if (searchedBookmarks)
+  if (!media || error) return <Error />;
+
+  const bookmarks = media.filter(el => isBookmarked(el.title));
+
+  if (bookmarks.length === 0)
     return (
-      <>
-        <ResultsSummary
-          count={searchedBookmarks.length}
-          query={debouncedSearchQuery}
-        />
-        <SearchResults results={searchedBookmarks} />
-      </>
+      <p className="text-xl font-light md:text-3xl">
+        You don't have any bookmarks
+      </p>
     );
 
+  const bookmarksSearched = bookmarks.filter(el =>
+    clearString(el.title).includes(clearString(debouncedSearchQuery)),
+  );
+
+  if (bookmarksSearched.length === 0)
+    return <ResultsSummary count={0} query={debouncedSearchQuery} />;
+
   const bookmarkedMovies = bookmarks.filter(
-    (bookmark: Media) => bookmark.Type === 'movie',
+    bookmark => bookmark.category === 'Movie',
   );
 
   const bookmarkedSeries = bookmarks.filter(
-    (bookmark: Media) => bookmark.Type === 'series',
+    bookmark => bookmark.category === 'TV Series',
   );
 
-  const bookmarkedOtherTypes = bookmarks.filter(
-    (bookmark: Media) =>
-      bookmark.Type !== 'series' && bookmark.Type !== 'movie',
-  );
+  console.log(bookmarkedSeries);
 
-  if (!bookmarks?.length)
-    return (
-      <span className="text-xl font-light md:text-3xl">
-        You have not any bookmarks
-      </span>
-    );
-
-  return (
+  return debouncedSearchQuery ? (
+    <>
+      <ResultsSummary
+        count={bookmarksSearched.length}
+        query={debouncedSearchQuery}
+      />
+      <SearchResults results={bookmarksSearched} />
+    </>
+  ) : (
     <>
       {bookmarkedMovies.length ? (
-        <div className="space-y-6">
+        <>
           <Heading>Bookmarked Movies</Heading>
           <SearchResults results={bookmarkedMovies} />
-        </div>
+        </>
       ) : null}
 
       {bookmarkedSeries.length ? (
-        <div className="space-y-6">
+        <>
           <Heading>Bookmarked TV Series</Heading>
           <SearchResults results={bookmarkedSeries} />
-        </div>
-      ) : null}
-
-      {bookmarkedOtherTypes.length ? (
-        <div className="space-y-6">
-          <Heading>Other Bookmarks</Heading>
-          <SearchResults results={bookmarkedOtherTypes} />
-        </div>
+        </>
       ) : null}
     </>
   );
 }
-
 export default Bookmarks;

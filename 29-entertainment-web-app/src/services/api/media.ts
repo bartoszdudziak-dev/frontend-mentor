@@ -1,27 +1,30 @@
-import { API_URL } from '../../utils/constants';
-import { FetchResult, FetchType } from './fetchTypes';
+import { type Media, type MediaCategory } from './fetchTypes';
+import { clearString } from '../../utils/helpers';
 
 export async function fetchMedia(
-  pageParam: number,
-  type: FetchType,
+  category?: MediaCategory,
   query?: string,
-): Promise<FetchResult> {
-  let fetchUrl = `${API_URL}&page=${pageParam}`;
+): Promise<Media[] | undefined> {
+  try {
+    const response = await fetch('data/data.json');
 
-  if (type !== 'all') fetchUrl += `&type=${type}`;
+    await new Promise(resolve => setTimeout(resolve, 300));
 
-  if (query) fetchUrl += `&s=${query}`;
-  else {
-    if (type === 'all') fetchUrl += `&s=top`;
-    if (type === 'movie') fetchUrl += `&s=movie`;
-    if (type === 'series') fetchUrl += `&s=series`;
+    if (!response.ok) throw new Error('Fetch failed');
+
+    let data = (await response.json()) as Media[];
+
+    if (category) {
+      data = data.filter(el => el.category === category);
+    }
+
+    if (query)
+      data = data.filter(el =>
+        clearString(el.title).includes(clearString(query)),
+      );
+
+    return data;
+  } catch (error) {
+    console.error(error);
   }
-
-  const response = await fetch(fetchUrl);
-
-  if (!response.ok) return { Response: 'False', Error: 'Fetch failed' };
-
-  const data = await response.json();
-
-  return data;
 }

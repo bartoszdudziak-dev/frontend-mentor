@@ -4,7 +4,7 @@ function Avatar({ className }: WithClassName) {
   return (
     <img
       className={`${className ? className : ''} rounded-full border border-white shadow`}
-      src="/assets/image-avatar.png"
+      src="assets/image-avatar.png"
       alt="Profile avatar"
     />
   );

@@ -2,45 +2,36 @@ import Error from '../components/ui/Error';
 import Spinner from '../components/ui/Spinner';
 import SearchResults from '../components/features/results/SearchResults';
 import ResultsSummary from '../components/features/results/ResultsSummary';
-import { useSearch } from '../context/search/useSearch';
-import { useMedia } from '../services/useMedia';
-import { useScrollPagination } from '../hooks/useScrollPagination';
 import Heading from '../components/ui/Heading';
+import { useMedia } from '../services/useMedia';
+import { useSearch } from '../context/search/useSearch';
 
 function Series() {
   const { debouncedSearchQuery } = useSearch();
 
   const {
-    data,
+    data: series,
     error,
-    totalResults,
-    fetchNextPage,
-    isFetchingNextPage,
-    isLoading,
-    hasNextPage,
-    hasNoResults,
-  } = useMedia({ type: 'series', query: debouncedSearchQuery });
+    isPending,
+  } = useMedia({
+    category: 'TV Series',
+    query: debouncedSearchQuery,
+  });
 
-  const { ref } = useScrollPagination(hasNextPage, fetchNextPage);
+  if (isPending) return <Spinner absoluteCentered={true} />;
 
-  if (isLoading) return <Spinner />;
+  if (!series || error) return <Error />;
 
-  if (error) return <Error />;
-
-  if (hasNoResults)
+  if (series.length === 0)
     return <ResultsSummary count={0} query={debouncedSearchQuery} />;
 
-  return (
+  return debouncedSearchQuery ? (
+    <SearchResults results={series} />
+  ) : (
     <>
-      {!debouncedSearchQuery ? (
-        <Heading>Series</Heading>
-      ) : (
-        <ResultsSummary count={totalResults} query={debouncedSearchQuery} />
-      )}
-      <SearchResults results={data} />
-      <span ref={ref}>{isFetchingNextPage && <Spinner />}</span>
+      <Heading>Series</Heading>
+      <SearchResults results={series} />
     </>
   );
 }
-
 export default Series;

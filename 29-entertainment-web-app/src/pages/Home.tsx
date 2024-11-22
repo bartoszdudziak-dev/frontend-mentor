@@ -2,49 +2,41 @@ import Error from '../components/ui/Error';
 import Spinner from '../components/ui/Spinner';
 import SearchResults from '../components/features/results/SearchResults';
 import ResultsSummary from '../components/features/results/ResultsSummary';
-import { useSearch } from '../context/search/useSearch';
-import { useMedia } from '../services/useMedia';
-import { useScrollPagination } from '../hooks/useScrollPagination';
 import Heading from '../components/ui/Heading';
-import Trending from '../components/features/trending/Trending';
+import { useMedia } from '../services/useMedia';
+import { useSearch } from '../context/search/useSearch';
 
 function Home() {
   const { debouncedSearchQuery } = useSearch();
 
   const {
-    data,
+    data: media,
     error,
-    totalResults,
-    fetchNextPage,
-    isFetchingNextPage,
-    isLoading,
-    hasNextPage,
-    hasNoResults,
-  } = useMedia({ type: 'all', query: debouncedSearchQuery });
+    isPending,
+  } = useMedia({
+    query: debouncedSearchQuery,
+  });
 
-  const { ref } = useScrollPagination(hasNextPage, fetchNextPage);
+  if (isPending) return <Spinner absoluteCentered={true} />;
 
-  if (isLoading) return <Spinner />;
+  if (!media || error) return <Error />;
 
-  if (error) return <Error />;
-
-  if (hasNoResults)
+  if (media.length === 0)
     return <ResultsSummary count={0} query={debouncedSearchQuery} />;
 
-  return (
+  const trendingMedia = media?.filter(el => el.isTrending);
+  const recommendedMedia = media?.filter(el => !el.isTrending);
+
+  return debouncedSearchQuery ? (
+    <SearchResults results={media} />
+  ) : (
     <>
-      {!debouncedSearchQuery ? (
-        <>
-          <Trending />
-          <Heading>Recommended for you</Heading>
-        </>
-      ) : (
-        <ResultsSummary count={totalResults} query={debouncedSearchQuery} />
-      )}
-      <SearchResults results={data} />
-      <span ref={ref}>{isFetchingNextPage && <Spinner />}</span>
+      <Heading>Trending</Heading>
+      <SearchResults results={trendingMedia} />
+
+      <Heading>Recommended</Heading>
+      <SearchResults results={recommendedMedia} />
     </>
   );
 }
-
 export default Home;

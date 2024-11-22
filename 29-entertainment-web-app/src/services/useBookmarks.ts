@@ -1,43 +1,32 @@
-import { Media } from './api/fetchTypes';
 import { useLocalStorage } from 'usehooks-ts';
+import { clearString } from '../utils/helpers';
 
 export function useBookmarks() {
-  const [bookmarks, setBookmarks] = useLocalStorage<Media[] | []>(
-    'bookmarks',
-    [],
-  );
+  const [bookmarks, setBookmarks] = useLocalStorage<string[]>('bookmarks', []);
 
-  const addBookmark = (newBookmark: Media) => {
-    setBookmarks((prevBookmarks: Media[] | []) => [
-      ...prevBookmarks,
-      newBookmark,
-    ]);
+  const addBookmark = (title: string) => {
+    setBookmarks(prevBookmarks => [...prevBookmarks, clearString(title)]);
   };
 
-  const removeBookmark = (id: string) => {
-    setBookmarks((prevBookmarks: Media[] | []) =>
-      prevBookmarks.filter(bookmark => bookmark.imdbID !== id),
+  const removeBookmark = (title: string) => {
+    setBookmarks(prevBookmarks =>
+      prevBookmarks.filter(bookmark => bookmark !== clearString(title)),
     );
   };
 
-  const isBookmarked = (id: string): boolean =>
-    bookmarks.some((bookmark: Media) => bookmark.imdbID === id);
+  const isBookmarked = (title: string): boolean =>
+    bookmarks.includes(clearString(title));
 
-  const searchBookmarks = (query: string) => {
-    if (!query) return null;
-
-    return bookmarks.filter(bookmark =>
-      bookmark.Title.toLocaleLowerCase().includes(
-        query.trim().toLocaleLowerCase(),
-      ),
-    );
+  const toggleBookmark = (title: string) => {
+    if (isBookmarked(title)) removeBookmark(title);
+    else addBookmark(title);
   };
 
   return {
     bookmarks,
-    searchBookmarks,
     addBookmark,
     removeBookmark,
     isBookmarked,
+    toggleBookmark,
   };
 }

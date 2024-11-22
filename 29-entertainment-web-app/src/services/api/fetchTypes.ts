@@ -1,56 +1,27 @@
-import { type MediaType } from '../../utils/commonTypes';
-
-export type FetchResult = FetchData | FetchError;
-
-export type FetchError = {
-  Error: string;
-  Response: 'False';
+type TrendingThumnail = {
+  small: string;
+  large: string;
 };
 
-export type FetchData = {
-  Response: 'True';
-  totalResults: string;
-  Search: Media[];
+type RegularThumnail = {
+  small: string;
+  medium: string;
+  large: string;
 };
 
-export type FetchType = MediaType | 'all';
+export type ThumbnailType = {
+  trending: TrendingThumnail;
+  regular: RegularThumnail;
+};
+
+export type MediaCategory = 'Movie' | 'TV Series';
 
 export type Media = {
-  Title: string;
-  Poster: string;
-  Year: string;
-  Type: MediaType;
-  imdbID: string;
-};
-
-export type Rating = {
-  Source: string;
-  Value: string;
-};
-export type Bookmark = {
-  Title: string;
-  Year: string;
-  Rated: string;
-  Released: string;
-  Runtime: string;
-  Genre: string;
-  Director: string;
-  Writer: string;
-  Actors: string;
-  Plot: string;
-  Language: string;
-  Country: string;
-  Awards: string;
-  Poster: string;
-  Ratings: Rating[];
-  Metascore: string;
-  imdbRating: string;
-  imdbVotes: string;
-  imdbID: string;
-  Type: string;
-  DVD: string;
-  BoxOffice: string;
-  Production: string;
-  Website: string;
-  Response: string;
+  title: string;
+  thumbnail: ThumbnailType;
+  year: number;
+  category: MediaCategory;
+  rating: string;
+  isBookmarked: boolean;
+  isTrending: boolean;
 };
