@@ -4,7 +4,7 @@ function Logo({ className }: WithClassName) {
   return (
     <svg
       className={`${className ? className : ''} shadow`}
-      aria-label="Logo"
+      aria-hidden={true}
       role="img"
       width="33"
       height="27"
